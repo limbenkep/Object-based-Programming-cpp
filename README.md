@@ -1,11 +1,11 @@
 [![discord][discord_badge]](https://discordapp.com/)
 [![JetBrains][jetbrains_badge]](https://www.jetbrains.com/student/)
-[![cpp][cpp_badge]](https://www.python.org/)
+[![cpp][cpp_badge]](https://en.cppreference.com/w/)
 [![vcs][git_badge]](https://git-scm.com/)
 [![made-with-Markdown][md_badge]](http://commonmark.org)
 
 [discord_badge]: https://img.shields.io/badge/-Discord-blue&style=flat?logo=discord&logoWidth=20&labelColor=black&logoColor=white&color=blue
-[cpp_badge]: https://img.shields.io/badge/-C++11-blue&style=flat?logo=git&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
+[cpp_badge]: https://img.shields.io/badge/-C++11-blue&style=flat?logo=cplusplus&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
 [git_badge]: https://img.shields.io/badge/-Git-blue&style=flat?logo=git&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
 [md_badge]: https://img.shields.io/badge/-Markdown-blue&style=flat?logo=markdown&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
 [jetbrains_badge]: https://img.shields.io/badge/-CLion-blue&style=flat?logo=jetbrains&logoWidth=20&labelColor=black&logoColor=white&color=blue
