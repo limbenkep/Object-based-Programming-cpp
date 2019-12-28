@@ -3,6 +3,6 @@
 using std::cout;
 using std::endl;
 
-void laborationPrototype() {
+void assignmentFunction() {
     cout << "DT019G Laboration 1!" << endl;
 }

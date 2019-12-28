@@ -1,6 +1,6 @@
 #include "Prototypes.h"
 
 int main() {
-    laborationPrototype();
+    assignmentFunction();
     return 0;
 }
