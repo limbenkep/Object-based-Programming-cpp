@@ -69,7 +69,7 @@ Laboration_x/
 
 -------------
 
-### Build Scripts
+#### Build Scripts
 You should all already be somewhat familiar with **CMake** and as in previous course(s) we'll continue to rely on its 
 cross-platform management of project builds, and just like before you'll be provided with a working structure of existing 
 build scripts. Directly under the repo root you'll find the master **``CMakeLists.txt``** which defines some general rulesets 
@@ -93,7 +93,7 @@ omitted from the build by simply commenting out relevant inclusion.
 
 -------------
 
-### README
+#### README
 The **README** documents you'll find under each assignment directory will be used as lab reports where you present the work you've 
 conducted. Details regarding _what_ and _how_ information should be presented can be seen in dedicated document in Moodle.
 
