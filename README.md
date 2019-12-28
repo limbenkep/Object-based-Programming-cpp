@@ -25,16 +25,24 @@ hand-in using the dedicated submission box in Moodle. Nothing should be attached
 current project state will be fetched from this repository, so make sure to synchronize any local changes with **remote origin** 
 before submission.
 
+-------------
+
+## General Structure
+Content...
+
+-------------
+
+## About the Author
+
 Please write a short presentation under below heading. Suitable content would be... 
 
 - ... who you are.
 - ... previous programming experiences.
 - ... your expectations regarding this course.
 
-Feel free to use Markdown syntax [^markdown] 
+Feel free to use Markdown syntax [^markdown] [^bitbucket_md]
 
 [^markdown]: _Markdown Cheatsheet_ [link](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-## About the Author
+[^bitbucket_md]: _Bitbucket Supported Markdown_ [link](https://bitbucket.org/tutorials/markdowndemo/src/master/)
 
 
