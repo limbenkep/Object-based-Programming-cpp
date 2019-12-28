@@ -22,5 +22,6 @@ int main() {
     std::cout << "Tid = "
          << seconds
          << " [s]" <<  std::endl;
+
     return 0;
 }

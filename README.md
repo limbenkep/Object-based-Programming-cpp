@@ -6,10 +6,10 @@
 [![vcs][git_badge]](https://git-scm.com/)
 [![made-with-Markdown][md_badge]](http://commonmark.org)
 
-[academia_badge]: https://img.shields.io/badge/-DT019G-blue&style=flat?logo=academia&logoWidth=20&labelColor=black&logoColor=white&color=blue
+[academia_badge]: https://img.shields.io/badge/MIUN-DT019G-blue&style=flat?labelColor=black&color=blue
 [discord_badge]: https://img.shields.io/badge/-Discord-blue&style=flat?logo=discord&logoWidth=20&labelColor=black&logoColor=white&color=blue
 [cpp_badge]: https://img.shields.io/badge/-C++11-blue&style=flat?logo=c&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
-[cmake_badge]: https://img.shields.io/badge/CMake-3.2-blue&style=flat?logo=cmake&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
+[cmake_badge]: https://img.shields.io/badge/-CMake-blue&style=flat?logo=cmake&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
 [git_badge]: https://img.shields.io/badge/-Git-blue&style=flat?logo=git&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
 [md_badge]: https://img.shields.io/badge/-Markdown-blue&style=flat?logo=markdown&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
 [jetbrains_badge]: https://img.shields.io/badge/-CLion-blue&style=flat?logo=jetbrains&logoWidth=20&labelColor=black&logoColor=white&color=blue
