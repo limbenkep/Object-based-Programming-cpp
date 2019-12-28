@@ -16,7 +16,7 @@
 
 -----------
 
-## Table of contents
+**Table of contents**  
 [TOC]
 
 --------------
@@ -32,7 +32,69 @@ before submission.
 -------------
 
 ## General Structure
-Content...
+The file / folder structure of this repo is determined by its initial state and you may not diverge from this structure at any time: 
+
+````
+root/
+    _Resources/
+    Laboration_1/
+    Laboration_2/
+    Laboration_3/
+    Laboration_4/
+    Laboration_5/
+    Project/
+    .gitignore
+    CMakeLists.txt
+    README.md
+````
+
+- **``_Resources/``** constitute as a common place to write and read data stored in files, and is shared by all assignments. 
+Further details can be seen in dedicated [**``README.md``**](./_Resources/README.md).
+- **``.gitignore``** dictates which content should be excluded from version control, i.e. not included in commits. 
+Existing contents of this file should be general enough to cover most circumstances, but feel free to add more as the need arises.
+
+Each assignment subdirectory has an identical file / folder structure:
+
+````
+Laboration_x/
+    include/
+    src/
+    CMakeLists.txt
+    README.md
+````
+
+- **``include/``** needs to contain all header files (``**.h``**) specific for this assignment.
+- **``src/``** needs to contain all source files (**``.cpp``**) specific for this assignment.
+
+-------------
+
+### Build Scripts
+You should all already be somewhat familiar with **CMake** and as in previous course(s) we'll continue to rely on its 
+cross-platform management of project builds, and just like before you'll be provided with a working structure of existing 
+build scripts. Directly under the repo root you'll find the master **``CMakeLists.txt``** which defines some general rulesets 
+and delegates build details to various subscripts.
+
+- Minimum required **CMake** is set to **3.2** and this value should only be modified if such a change can properly be justified.
+- We're only using **C++** in conformity to standard **C++11**. The value **``CMAKE_CXX_STANDARD 11``** should therefore not be changed.
+- Static inclusion of dependencies may be omitted from the build in case of any issues, which could happen on certain Unix systems. 
+Simply remove or comment out the following line **``set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")``**.
+
+The remaining parts of the master script simply delegates build details to dedicated subscripts, which can be found in relevant subdirectories:
+
+````
+add_subdirectory(Laboration_x)
+add_subdirectory(Project)
+```` 
+
+This makes the build system very modularized and provides easy management of what needs to be included in each build. During this course 
+build time shouldn't raise much of an issue, but delegation in this manner offers scalability where certain parts can easily be 
+omitted from the build by simply commenting out relevant inclusion.
+
+-------------
+
+### README
+The **README** documents you'll find under each assignment directory will be used as lab reports where you present the work you've 
+conducted. Details regarding _what_ and _how_ information should be presented can be seen in dedicated document in Moodle.
 
 -------------
 
