@@ -1,3 +1,4 @@
+[![academia][academia_badge]](https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/Sok-kursplan/kursplan/?kursplanid=22426)
 [![discord][discord_badge]](https://discordapp.com/)
 [![JetBrains][jetbrains_badge]](https://www.jetbrains.com/student/)
 [![cpp][cpp_badge]](https://en.cppreference.com/w/)
@@ -5,6 +6,7 @@
 [![vcs][git_badge]](https://git-scm.com/)
 [![made-with-Markdown][md_badge]](http://commonmark.org)
 
+[academia_badge]: https://img.shields.io/badge/-DT019G-blue&style=flat?logo=academia&logoWidth=20&labelColor=black&logoColor=white&color=blue
 [discord_badge]: https://img.shields.io/badge/-Discord-blue&style=flat?logo=discord&logoWidth=20&labelColor=black&logoColor=white&color=blue
 [cpp_badge]: https://img.shields.io/badge/-C++11-blue&style=flat?logo=c&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
 [cmake_badge]: https://img.shields.io/badge/CMake-3.2-blue&style=flat?logo=cmake&logoWidth=20&labelColor=black&logoColor=white&color=blueviolet
@@ -36,7 +38,7 @@ Content...
 
 ## About the Author
 
-Please write a short presentation under below heading. Suitable content would be... 
+Please write a short presentation. Suitable content would be... 
 
 - ... who you are.
 - ... previous programming experiences.
