@@ -1,4 +1,5 @@
 #include "Prototypes.h"
+#include "memstat.hpp"
 
 int main() {
     assignmentFunction();

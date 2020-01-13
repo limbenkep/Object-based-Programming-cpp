@@ -75,6 +75,8 @@ out/
 
 # ignore everything except for one file in Resource folder
 _Resources/*
+!_Resources/_libs/
+!_Resources/_img/
 !_Resources/README.md
 !_Resources/jukebox.txt
 

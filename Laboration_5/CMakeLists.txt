@@ -6,4 +6,4 @@ add_executable(${PROJECT_NAME}-Laboration_5 ${SOURCES})
 
 # In order to avoid '../../../' semantics in include paths (relative), we need to add
 # target directory to the configuration
-target_include_directories(${PROJECT_NAME}-Laboration_5 PRIVATE include/)
+target_include_directories(${PROJECT_NAME}-Laboration_5 PRIVATE include/ ../_Resources/_libs/)

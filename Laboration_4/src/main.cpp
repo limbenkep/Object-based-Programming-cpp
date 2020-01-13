@@ -1,4 +1,5 @@
 #include "Prototypes.h"
+#include "memstat.hpp"
 #include <iostream>
 #include <string>
 #include <iomanip>
