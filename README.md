@@ -103,9 +103,9 @@ conducted. Details regarding _what_ and _how_ information should be presented ca
 
 Please write a short presentation. Suitable content would be... 
 
-- ... who you are.
-- ... previous programming experiences.
-- ... your expectations regarding this course.
+- ... My name is Lima Honorine
+- ... My previous programming experince is from introduction course in c++
+- ... To learn more about programming in c++
 
 Feel free to use Markdown syntax [^markdown] [^bitbucket_md]
 
