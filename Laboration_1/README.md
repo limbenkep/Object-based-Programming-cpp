@@ -18,4 +18,4 @@ CMake minimum version. I also had some errors with syntax errors and pointers th
 The purpose of the lab was fullfilled. I learned how to generate random numbers, 
 how to fill an array, how to work with pointers and dynamic arrays. It was very difficult to learn the use of 
 CMake, CLion, git and do Lab a within one week since I did an equivalent introduction course which did not use these. 
-I think it will be useful to have better examples related to the labs in the lectures.  
+I think it will be useful to have better examples related to the labs in the lectures. I think the lecture were not sufficient 
