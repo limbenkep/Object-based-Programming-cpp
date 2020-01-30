@@ -40,4 +40,7 @@ void Name::setLastName(const string &pLastName)
     lastName = pLastName;
 }
 
-
+string Name::fullName()
+{
+    return firstName + " " + lastName;
+}

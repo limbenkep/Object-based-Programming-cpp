@@ -29,7 +29,7 @@ public:
     string getLastName() const;
 
     void setLastName(const string &lastName);
+    string fullName ();
 };
-
 
 #endif //LABORATION_2_NAME_H
