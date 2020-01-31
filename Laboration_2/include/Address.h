@@ -18,21 +18,21 @@ private:
 public:
     Address();
 
-    Address(const string &streetName, const string &postNumber, const string &cityName);
+    Address(const string &pStreetName, const string &pPostNumber, const string &pCityName);
 
     virtual ~Address();
 
     const string &getStreetName() const;
 
-    void setStreetName(const string &streetName);
+    void setStreetName(const string &pStreetName);
 
     const string &getPostNumber() const;
 
-    void setPostNumber(const string &postNumber);
+    void setPostNumber(const string &pPostNumber);
 
     const string &getCityName() const;
 
-    void setCityName(const string &cityName);
+    void setCityName(const string &pCityName);
     /**
      * combines streetName,postNumber and cityName to give  full address
      * @return full address in the form of a string.

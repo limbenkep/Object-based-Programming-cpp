@@ -18,17 +18,17 @@ private:
 
 public:
     Name();
-    Name(const string &firstName, const string &lastName);
+    Name(const string &pFirstName, const string &pLastName);
 
     virtual ~Name();
 
     string getFirstName() const;
 
-    void setFirstName(const string &firstName);
+    void setFirstName(const string &pFirstName);
 
     string getLastName() const;
 
-    void setLastName(const string &lastName);
+    void setLastName(const string &pLastName);
     string fullName ();
 };
 
