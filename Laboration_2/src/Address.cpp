@@ -19,7 +19,7 @@ Address::~Address()
 
 }
 
-const string &Address::getStreetName() const
+string Address::getStreetName() const
 {
     return streetName;
 }
@@ -29,7 +29,7 @@ void Address::setStreetName(const string &pStreetName)
     streetName = pStreetName;
 }
 
-const string &Address::getPostNumber() const
+string Address::getPostNumber() const
 {
     return postNumber;
 }
@@ -39,7 +39,7 @@ void Address::setPostNumber(const string &pPostNumber)
     postNumber = pPostNumber;
 }
 
-const string &Address::getCityName() const
+string Address::getCityName() const
 {
     return cityName;
 }
@@ -52,4 +52,25 @@ void Address::setCityName(const string &pCityName)
 string Address::fullAddress()
 {
     return streetName + "\n" + postNumber + "\n" + cityName;
+}
+
+Address Address::readAddress()
+{
+    Address myAddress;
+    string myStreetName;
+    string myPostNumber;
+    string myCityName;
+    cout << "\nEnter street name: ";
+    getline (cin, myStreetName);
+    myAddress.setStreetName(myStreetName);
+
+    cout << "\nEnter post number: ";
+    getline (cin, myPostNumber);
+    myAddress.setPostNumber(myPostNumber);
+
+    cout << "\nEnter city name: ";
+    getline (cin, myCityName);
+    myAddress.setCityName(myCityName);
+
+    return myAddress;
 }

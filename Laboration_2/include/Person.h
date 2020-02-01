@@ -25,21 +25,32 @@ public:
 
     virtual ~Person();
 
-    const Name &getName() const;
+    Name getName() const;
 
     void setName(const Name &pName);
 
-    const Address &getAddress() const;
+    Address getAddress() const;
 
     void setAddress(const Address &pAddress);
 
-    const string &getPersNr() const;
+    string getPersNr() const;
 
     void setPersNr(const string &pPersNr);
 
     int getShoeNr() const;
 
     void setShoeNr(int pShoeNr);
+
+    /*
+     * prompts user to enter nemes, address, social security number and shoe size and loads it in an object of type Person
+     * returns an object of type Person
+     */
+    Person readPerson();
+
+    /*
+     * receives an object of type Person and prints the information: Name, address, social security number and shoe size
+     */
+    void Person::showPerson(const Person &pPerson);
 
 };
 

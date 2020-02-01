@@ -22,22 +22,29 @@ public:
 
     virtual ~Address();
 
-    const string &getStreetName() const;
+    string getStreetName() const;
 
     void setStreetName(const string &pStreetName);
 
-    const string &getPostNumber() const;
+    string getPostNumber() const;
 
     void setPostNumber(const string &pPostNumber);
 
-    const string &getCityName() const;
+    string getCityName() const;
 
     void setCityName(const string &pCityName);
+
     /**
      * combines streetName,postNumber and cityName to give  full address
      * @return full address in the form of a string.
      */
     string fullAddress();
+
+    /**
+     * prompts user for street name, post number and city name
+     * @return returns an object of type Address
+     */
+    Address readAddress();
 
 };
 

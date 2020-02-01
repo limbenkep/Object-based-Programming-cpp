@@ -30,6 +30,11 @@ public:
 
     void setLastName(const string &pLastName);
     string fullName ();
+    /*
+     * prompts user for first and last name and load in an object of type Name
+     * returns an object of type Name.
+     */
+    Name readName();
 };
 
 #endif //LABORATION_2_NAME_H

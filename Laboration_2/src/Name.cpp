@@ -44,3 +44,20 @@ string Name::fullName()
 {
     return firstName + " " + lastName;
 }
+
+Name Name::readName()
+{
+    Name myName;
+    string myFirstName;
+    string myLastName;
+
+    cout << "\nEnter person first name: ";
+    getline (cin, myFirstName);
+    myName.setFirstName(myFirstName);
+
+    cout << "\nEnter person last name: ";
+    getline (cin, myLastName);
+    myName.setLastName(myLastName);
+
+    return myName;
+}
