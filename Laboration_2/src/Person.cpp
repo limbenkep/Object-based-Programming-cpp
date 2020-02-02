@@ -4,21 +4,22 @@
 
 #include "Person.h"
 
+#include <utility>
+
 Person::Person()
 {
+    shoeNr = 0;
 }
 
-Person::Person(const Name &pName, const Address &pAddress, const string &pPersNr, int pShoeNr) : name(pName),
+Person::Person(const Name &pName, const Address &pAddress, string pPersNr, int pShoeNr) : name(pName),
                                                                                              address(pAddress),
-                                                                                             persNr(pPersNr),
+                                                                                             persNr(std::move(pPersNr)),
                                                                                              shoeNr(pShoeNr)
 {
 }
 
 Person::~Person()
-{
-
-}
+= default;
 
 Name Person::getName() const
 {
@@ -61,7 +62,7 @@ void Person::setShoeNr(int pShoeNr)
 }
 void Person::showPerson(const Person &pPerson)
 {
-    cout<< "\n\n\nFull names:\n" << pPerson.getName().fullName() << "\nAddress:\n" << pPerson.getAddress().fullAddress()
+    cout<< "\nFull names:\n" << pPerson.getName().fullName() << "\nAddress:\n" << pPerson.getAddress().fullAddress()
     << "\nSocial security number:\n" << pPerson.getPersNr() << "\nShoe size:\n" <<pPerson.getShoeNr()<<endl;
 }
 

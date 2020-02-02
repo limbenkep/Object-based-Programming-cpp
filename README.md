@@ -104,8 +104,11 @@ conducted. Details regarding _what_ and _how_ information should be presented ca
 Please write a short presentation. Suitable content would be... 
 
 - ... My name is Lima Honorine
-- ... My previous programming experince is from introduction course in c++
-- ... To learn more about programming in c++
+- ... My previous programming experience is from a summer course I took in uppsala university on `Datorer och programmerring i C++`
+      and Datavetenskaplig introduktion kurs. I have basic knowledge in programming in C++ and a brief introduction to 
+      object-oriented programming
+- ... My expectation for this course is to learn more about programming in c++ and object-oriented programming. 
+      I am hoping to  receive guidance and feedback to build my programming skills.
 
 Feel free to use Markdown syntax [^markdown] [^bitbucket_md]
 

@@ -21,7 +21,7 @@ private:
 public:
     Person();
 
-    Person(const Name &pName, const Address &pAddress, const string &pPersNr, int pShoeNr);
+    Person(const Name &pName, const Address &pAddress, string pPersNr, int pShoeNr);
 
     virtual ~Person();
 
