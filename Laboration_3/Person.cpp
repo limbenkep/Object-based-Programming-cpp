@@ -1,10 +1,8 @@
 //
-// Created by limbe on 2020-01-31.
+// Created by limbe on 2020-02-05.
 //
 
-
 #include "Person.h"
-
 #include <utility>
 
 Person::Person()
@@ -13,9 +11,9 @@ Person::Person()
 }
 
 Person::Person(const Name &pName, const Address &pAddress, string pPersNr, int pShoeNr) : name(pName),
-                                                                                             address(pAddress),
-                                                                                             persNr(std::move(pPersNr)),
-                                                                                             shoeNr(pShoeNr)
+                                                                                          address(pAddress),
+                                                                                          persNr(std::move(pPersNr)),
+                                                                                          shoeNr(pShoeNr)
 {
 }
 
@@ -64,7 +62,7 @@ void Person::setShoeNr(int pShoeNr)
 void Person::showPerson(const Person &pPerson)
 {
     cout<< "\nFull names:\n" << pPerson.getName().fullName() << "\nAddress:\n" << pPerson.getAddress().fullAddress()
-    << "\nSocial security number:\n" << pPerson.getPersNr() << "\nShoe size:\n" <<pPerson.getShoeNr()<<endl;
+        << "\nSocial security number:\n" << pPerson.getPersNr() << "\nShoe size:\n" <<pPerson.getShoeNr()<<endl;
 }
 
 Person Person::readPerson()
@@ -81,14 +79,13 @@ Person Person::readPerson()
     string pPersNr;
     int pShoeNr = 0;
 
-    cout<< "\nEnter social security number: ";
+    cout << "\nEnter social security number: ";
     getline(cin, pPersNr);
     pers.setPersNr(pPersNr);
 
-    cout<< "\nEnter shoe size: ";
+    cout << "\nEnter shoe size: ";
     cin >> pShoeNr;
     pers.setShoeNr(pShoeNr);
 
     return pers;
-
 }

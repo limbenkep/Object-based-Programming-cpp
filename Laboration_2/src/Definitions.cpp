@@ -1,8 +1,18 @@
 #include "Prototypes.h"
-#include <iostream>
-using std::cout;
-using std::endl;
 
-void assignmentFunction() {
-    cout << "DT019G Laboration 2!" << endl;
+
+
+void addPerson(vector<Person> &people)
+{
+    Person newPerson;
+    newPerson = newPerson.readPerson();
+    people.push_back(newPerson);
+}
+
+void printPeople(vector<Person> &people)
+{
+    for(auto person: people )
+    {
+        person.showPerson(person);
+    }
 }

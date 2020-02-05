@@ -1,16 +1,18 @@
 //
-// Created by limbe on 2020-01-30.
+// Created by limbe on 2020-02-05.
 //
 /*
- * This class stores information about a person's address. I contains information on;
+ * This class stores information about a person's address. It contains information on;
  * the name of the street the person lives in (streetName )
  * The post number (postNumber)
- * the namem of the city (cityName)
+ * the name of the city (cityName)
+ * functions to get and set the above member data
  * A function that returns the full addrees as a single string and
  * A function that reads informtion about a person's address and returns the information in object of type Address
  */
-#ifndef LABORATION_2_ADDRESS_H
-#define LABORATION_2_ADDRESS_H
+#ifndef LABORATION_3_ADDRESS_H
+#define LABORATION_3_ADDRESS_H
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -56,4 +58,4 @@ public:
 };
 
 
-#endif //LABORATION_2_ADDRESS_H
+#endif //LABORATION_3_ADDRESS_H

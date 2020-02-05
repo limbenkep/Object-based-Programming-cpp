@@ -1,5 +1,5 @@
 //
-// Created by limbe on 2020-01-30.
+// Created by limbe on 2020-02-05.
 //
 /*
  * The Class Name contains information about a persons name. It contains;
@@ -9,8 +9,9 @@
  * A function that returns full name as a single string, and
  * And a function that reads the first and last name from the keyboard and return an obkect of type Name
  */
-#ifndef LABORATION_2_NAME_H
-#define LABORATION_2_NAME_H
+
+#ifndef LABORATION_3_NAME_H
+#define LABORATION_3_NAME_H
 
 #include <iostream>
 #include <string>
@@ -44,4 +45,5 @@ public:
     Name readName();
 };
 
-#endif //LABORATION_2_NAME_H
+
+#endif //LABORATION_3_NAME_H

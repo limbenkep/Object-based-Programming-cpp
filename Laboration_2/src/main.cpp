@@ -1,11 +1,6 @@
 #include "Prototypes.h"
-#include "memstat.hpp"
-#include "Name.h"
-#include "Address.h"
-#include "Person.h"
-#include <iostream>
-#include <string>
-#include <vector>
+
+
 
 
 void addPerson(vector<Person> &people);
@@ -40,21 +35,3 @@ int main()
 }
 
 
-/*
- * the function receives a vector by referens,
- * reads in data for a person and adds a new person to the vector
- */
-void addPerson(vector<Person> &people)
-{
-    Person newPerson;
-    newPerson = newPerson.readPerson();
-    people.push_back(newPerson);
-}
-
-void printPeople(vector<Person> &people)
-{
-    for(auto person: people )
-    {
-        person.showPerson(person);
-    }
-}

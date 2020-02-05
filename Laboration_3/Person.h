@@ -1,20 +1,20 @@
 //
-// Created by limbe on 2020-01-31.
+// Created by limbe on 2020-02-05.
 //
 /*
- * This class contains informatiorn about a person's full name(uses class Name), address(uses classAddress),
+ * This class contains information about a person's full name(uses class Name), address(uses classAddress),
  * social security number (persNr) and shoes size (shoeNr)
  * functions that get and set the above member data
  * The function showPerson that prints a given person's information on the screen
  * a function read person that reads information about a person and returns an obect of class Person.
  */
-#ifndef LABORATION_2_PERSON_H
-#define LABORATION_2_PERSON_H
+#ifndef LABORATION_3_PERSON_H
+#define LABORATION_3_PERSON_H
+
 #include "Name.h"
 #include "Address.h"
 #include <iostream>
 #include <string>
-
 
 class Person
 {
@@ -61,4 +61,4 @@ public:
 };
 
 
-#endif //LABORATION_2_PERSON_H
+#endif //LABORATION_3_PERSON_H

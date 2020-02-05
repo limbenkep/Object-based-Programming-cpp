@@ -10,6 +10,16 @@ Git version: 2.25.0.windows.1
 ## Purpose
 The purpose of this lab was to learn the basics of object- oriented programming through the use of Class, object, 
 encapsulation, the use of a class in another class and to write a program that uses class.
+The use of classes makes it possible to hide data which can only be assessed from outsude the class by calling a member
+ function. This method of programming that uses classes (OOP) is advantageous in that it is more maintainable
+ , the codes can be easily reusable for example if I need the classes Address or erson for another lab, I just need 
+ to copy from this lab and modify if necessary and use. This project also uses 
+ Vectors provide an optimal way to store the objects that can be easily accessed for example 
+ by a print function. The use of classes and functions makes the main program code less crowded with just a feww lines 
+ of codes calling functions whose implementations are hidden in the defeination or class .cpp files,
+  making it easier to get an overview of the program by looking a the main.
+ 
+ 
 
 ## Procedures
 (see intructions for lab 2)
