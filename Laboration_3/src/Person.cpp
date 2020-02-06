@@ -5,6 +5,7 @@
 #include "Person.h"
 #include <utility>
 
+
 Person::Person()
 {
     shoeNr = 0;
@@ -19,6 +20,7 @@ Person::Person(const Name &pName, const Address &pAddress, string pPersNr, int p
 
 Person::~Person()
 = default;
+
 
 Name Person::getName() const
 {
@@ -59,6 +61,51 @@ void Person::setShoeNr(int pShoeNr)
 {
     shoeNr = pShoeNr;
 }
+
+/*bool Person::operator==(const Person &person) const
+{
+    return person.name
+}*/
+
+/*bool Person::operator<(const Person &person) const
+{
+
+}*/
+
+const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry
+
+ostream &operator<<(ostream &os, const Person &person)
+{
+    os << person.getName() << DELIM;
+    os << person.getAddress() << DELIM;
+    os << person.getPersNr() << DELIM;
+    os << person.getShoeNr();
+    return os;
+}
+
+istream &operator>>(istream &is, Person &person)
+{
+    Name n;
+    Address addr;
+    string tmpString;
+    is>>n;
+   /* getline (is, tmpString, DELIM);// read with getline till the THE aharacter '|' (DELIM)
+    person.setName(tmpString);
+
+    getline (is, tmpString, DELIM); // continue reading with getline till it reads DELIM
+    person.setAddress(tmpString);
+
+    getline (is, tmpString, DELIM);
+    person.setPersNr(tmpString);
+
+    getline (is, tmpString);// continue reading till the end of the line of the Istream
+    int tmpShoeNr = stoi(tmpString); //converts string to int
+    person.setShoeNr(tmpShoeNr);*/
+
+    return is;
+
+}
+
 void Person::showPerson(const Person &pPerson)
 {
     cout<< "\nFull names:\n" << pPerson.getName().fullName() << "\nAddress:\n" << pPerson.getAddress().fullAddress()

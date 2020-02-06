@@ -10,7 +10,7 @@ set (CMAKE_CXX_STANDARD 11)
 aux_source_directory(src/ SOURCES)
 
 # Create executable for the run configuration
-add_executable(${PROJECT_NAME}-Laboration_3 ${SOURCES} src/Name.cpp include/Name.h src/Address.cpp include/Address.h Person.cpp Person.h)
+add_executable(${PROJECT_NAME}-Laboration_3 ${SOURCES}  src/Name.cpp include/Name.h src/Address.cpp include/Address.h src/Person.cpp include/Person.h)
 
 # In order to avoid '../../../' semantics in include paths (relative), we need to add
 # target directory to the configuration

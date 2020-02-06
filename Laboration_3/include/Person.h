@@ -48,6 +48,16 @@ public:
     void setShoeNr(int pShoeNr);
 
     /*
+     * overloaded operator for equator operator
+     */
+   bool operator==(const Person &person) const;
+    /*
+    * overloaded operator for 'less than' operator
+    */
+    bool operator<(const Person &person) const;
+
+
+    /*
      * prompts user to enter nemes, address, social security number and shoe size and loads it in an object of type Person
      * returns an object of type Person
      */
@@ -60,5 +70,15 @@ public:
 
 };
 
+/*
+ * output operator for printing to a file
+ *
+ */
+ostream &operator<<(ostream &os, const Person &person);
+
+/*
+ * input operator for reading from  a file
+ */
+istream &operator>>(istream &is, Person &person);
 
 #endif //LABORATION_3_PERSON_H

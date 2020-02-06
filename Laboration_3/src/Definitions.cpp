@@ -21,3 +21,5 @@ void printPeople(vector<Person> &people)
         person.showPerson(person);
     }
 }
+
+void assignmentFunction(){}

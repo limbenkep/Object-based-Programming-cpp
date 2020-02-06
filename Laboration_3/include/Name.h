@@ -37,6 +37,17 @@ public:
     string getLastName() const;
 
     void setLastName(const string &pLastName);
+
+
+    /*
+     * overloaded operator for equator operator
+     */
+    bool operator==(const Name &name) const;
+    /*
+    * overloaded operator for 'less than' operator
+    */
+    bool operator<(const Name &name) const;
+
     string fullName ();
     /*
      * prompts user for first and last name and load in an object of type Name
@@ -45,5 +56,16 @@ public:
     Name readName();
 };
 
+/*
+* output operator for printing to a file
+*
+*/
+ostream &operator<<(ostream &os, const Name &name);
+
+/*
+* input operator for printing to a file
+*
+*/
+istream &operator>>(istream &is, Name &name);
 
 #endif //LABORATION_3_NAME_H

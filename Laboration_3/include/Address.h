@@ -43,6 +43,18 @@ public:
 
     void setCityName(const string &pCityName);
 
+
+    /*
+     * overloaded operator for equator operator
+     */
+    bool operator==(const Address &address) const;
+
+    /*
+    * overloaded operator for 'less than' operator
+    */
+    bool operator<(const Address &address) const;
+
+
     /**
      * combines streetName,postNumber and cityName to give  full address
      * @return full address in the form of a string.
@@ -54,8 +66,17 @@ public:
      * @return returns an object of type Address
      */
     Address readAddress();
-
 };
+/*
+ * output operator for printing to a file
+ *
+ */
+ostream &operator<<(ostream &os, const Address &address);
+
+/*
+ * input operator for reading from  a file
+ */
+istream &operator>>(istream &is, Address &address);
 
 
 #endif //LABORATION_3_ADDRESS_H

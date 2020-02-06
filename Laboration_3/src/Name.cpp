@@ -39,6 +39,37 @@ void Name::setLastName(const string &pLastName)
     lastName = pLastName;
 }
 
+bool Name::operator==(const Name &name) const
+{
+    return name.firstName == firstName && name.lastName == lastName;
+}
+
+/*bool Name::operator<(const Name &name) const
+{
+
+}*/
+
+const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry
+
+ostream &operator<<(ostream &os, const Name &name)
+{
+    os << name.getFirstName() << DELIM;
+    os << name.getLastName();
+    return os;
+}
+
+istream &operator>>(istream &is, Name &name)
+{
+    string tmpString;
+    getline (is, tmpString, DELIM);// read with getline till the THE aharacter '|' (DELIM)
+    name.setFirstName(tmpString);
+
+    getline (is, tmpString); // continue reading with getline till it reads DELIM
+    name.setLastName(tmpString);
+
+    return is;
+}
+
 string Name::fullName()
 {
     return firstName + " " + lastName;

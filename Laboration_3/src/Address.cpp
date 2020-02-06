@@ -55,6 +55,36 @@ string Address::fullAddress()
     return streetName + "\n" + postNumber + "\n" + cityName;
 }
 
+bool Address::operator==(const Address &address) const
+{
+    return address.streetName == streetName && address.postNumber == postNumber && address.cityName == cityName;
+}
+
+const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry
+
+ostream &operator<<(ostream &os, const Address &address)
+{
+    os << address.getStreetName() << DELIM;
+    os << address.getPostNumber() << DELIM;
+    os << address.getCityName();
+    return os;
+}
+
+istream &operator>>(istream &is, Address &address)
+{
+    string tmpString;
+    getline (is, tmpString, DELIM);// read with getline till the THE aharacter '|' (DELIM)
+    address.setStreetName(tmpString);
+
+    getline (is, tmpString, DELIM); // continue reading with getline till it reads DELIM
+    address.setPostNumber(tmpString);
+
+    getline (is, tmpString);// continue reading till the end of the line of the Istream
+    address.setCityName(tmpString);
+
+    return is;
+}
+
 Address Address::readAddress()
 {
     Address myAddress;
@@ -75,3 +105,5 @@ Address Address::readAddress()
 
     return myAddress;
 }
+
+
