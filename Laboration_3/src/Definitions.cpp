@@ -22,4 +22,5 @@ void printPeople(vector<Person> &people)
     }
 }
 
+
 void assignmentFunction(){}
