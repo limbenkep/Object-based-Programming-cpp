@@ -50,8 +50,11 @@ public:
     bool operator==(const Address &address) const;
 
     /*
-    * overloaded operator for 'less than' operator
-    */
+   * overloaded operator for 'less than' operator.
+     * This function checks if the city names are the same,
+    * if so it checks if the street name of the given object is less than the current street name and returns true or false
+    * if the city names are not the same, it checks if the city name of the given object is less than the current and returns bool.
+   */
     bool operator<(const Address &address) const;
 
 

@@ -44,7 +44,9 @@ public:
      */
     bool operator==(const Name &name) const;
     /*
-    * overloaded operator for 'less than' operator
+    * overloaded operator for 'less than' operator. This function checks if the first names are the same,
+     * if so it checks if the last name of the given object is less than the current last name and returns true or false
+     * if the lastnames are not the same, it checks if the last name of the given object is less than the current and returns bool.
     */
     bool operator<(const Name &name) const;
 

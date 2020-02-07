@@ -60,6 +60,18 @@ bool Address::operator==(const Address &address) const
     return address.streetName == streetName && address.postNumber == postNumber && address.cityName == cityName;
 }
 
+bool Address::operator<(const Address &address) const
+{
+    if (address.cityName == cityName )
+    {
+        return address.streetName < streetName;
+    }
+    else
+    {
+        return address.cityName < cityName;
+    }
+}
+
 const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry
 
 ostream &operator<<(ostream &os, const Address &address)

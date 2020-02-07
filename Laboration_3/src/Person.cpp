@@ -62,15 +62,22 @@ void Person::setShoeNr(int pShoeNr)
     shoeNr = pShoeNr;
 }
 
-/*bool Person::operator==(const Person &person) const
+bool Person::operator==(const Person &person) const
 {
-    return person.name
-}*/
+    return person.name == name && person.address == address && person.persNr == persNr && person.shoeNr == shoeNr;
+}
 
-/*bool Person::operator<(const Person &person) const
+bool Person::operator<(const Person &person) const
 {
-
-}*/
+    if (person.name == name)
+    {
+        return person.address < address;
+    }
+    else
+    {
+        return person.name < name;
+    }
+}
 
 const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry
 

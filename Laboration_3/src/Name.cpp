@@ -44,10 +44,17 @@ bool Name::operator==(const Name &name) const
     return name.firstName == firstName && name.lastName == lastName;
 }
 
-/*bool Name::operator<(const Name &name) const
+bool Name::operator<(const Name &name) const
 {
-
-}*/
+    if (name.lastName == lastName)
+    {
+        return name.firstName < firstName;
+    }
+    else
+    {
+        return name.lastName < lastName;
+    }
+}
 
 const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry
 
