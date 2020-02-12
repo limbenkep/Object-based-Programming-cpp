@@ -62,6 +62,7 @@ ostream &operator<<(ostream &os, const Name &name)
 {
     os << name.getFirstName() << DELIM;
     os << name.getLastName();
+    //honorine|lima
     return os;
 }
 

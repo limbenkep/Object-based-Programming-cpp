@@ -92,32 +92,50 @@ ostream &operator<<(ostream &os, const Person &person)
 
 istream &operator>>(istream &is, Person &person)
 {
-    Name n;
+
+    Name name;
     Address addr;
+
     string tmpString;
-    is>>n;
-   /* getline (is, tmpString, DELIM);// read with getline till the THE aharacter '|' (DELIM)
-    person.setName(tmpString);
+
+    getline (is, tmpString, DELIM);// read with getline till the THE aharacter '|' (DELIM)
+    name.setFirstName(tmpString);
+
+    getline (is, tmpString, DELIM);
+    name.setLastName(tmpString);
+
+    person.setName(name);
 
     getline (is, tmpString, DELIM); // continue reading with getline till it reads DELIM
-    person.setAddress(tmpString);
+    addr.setStreetName(tmpString);
+
+    getline (is, tmpString, DELIM);
+    addr.setPostNumber(tmpString);
+
+    getline (is, tmpString, DELIM);
+    addr.setCityName(tmpString);
+
+    person.setAddress(addr);
 
     getline (is, tmpString, DELIM);
     person.setPersNr(tmpString);
 
-    getline (is, tmpString);// continue reading till the end of the line of the Istream
-    int tmpShoeNr = stoi(tmpString); //converts string to int
-    person.setShoeNr(tmpShoeNr);*/
+    int tmpShoeNr = 0;
+    is >> tmpShoeNr;
+    is.get(); //reads and discard the remaining end of line character.
+    person.setShoeNr(tmpShoeNr);
 
     return is;
 
 }
 
+
+/*
 void Person::showPerson(const Person &pPerson)
 {
     cout<< "\nFull names:\n" << pPerson.getName().fullName() << "\nAddress:\n" << pPerson.getAddress().fullAddress()
         << "\nSocial security number:\n" << pPerson.getPersNr() << "\nShoe size:\n" <<pPerson.getShoeNr()<<endl;
-}
+}*/
 
 Person Person::readPerson()
 {

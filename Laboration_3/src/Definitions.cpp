@@ -3,24 +3,16 @@
 using std::cout;
 using std::endl;
 
-/*
- * the function receives a vector by referens,
- * reads in data for a person and adds a new person to the vector
- */
-void addPerson(vector<Person> &people)
-{
-    Person newPerson;
-    newPerson = newPerson.readPerson();
-    people.push_back(newPerson);
+
+
+bool sortByName(const Person &lhs, const Person &rhs){
+    return lhs.getName() < rhs.getName();
 }
-
-void printPeople(vector<Person> &people)
+bool sortByPersNr(const Person &lhs, const Person &rhs)
 {
-    for(auto person: people )
-    {
-        person.showPerson(person);
-    }
+    return lhs.getPersNr() < rhs.getPersNr();
 }
-
-
-void assignmentFunction(){}
+bool sortByShoeNr(const Person &lhs, const Person &rhs)
+{
+    return lhs.getShoeNr() < rhs.getShoeNr();
+}

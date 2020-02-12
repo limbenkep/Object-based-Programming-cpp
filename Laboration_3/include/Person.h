@@ -57,16 +57,21 @@ public:
     bool operator<(const Person &person) const;
 
 
-    /*
+
+
+/*
      * prompts user to enter nemes, address, social security number and shoe size and loads it in an object of type Person
      * returns an object of type Person
      */
+
     Person readPerson();
 
-    /*
+/*
      * receives an object of type Person and prints the information: Name, address, social security number and shoe size
-     */
+     *//*
+
     void Person::showPerson(const Person &pPerson);
+*/
 
 };
 
@@ -80,5 +85,11 @@ ostream &operator<<(ostream &os, const Person &person);
  * input operator for reading from  a file
  */
 istream &operator>>(istream &is, Person &person);
+
+/*
+ * This function allows user to enter data on a person and  reads in data and returns a Person object
+ */
+
+
 
 #endif //LABORATION_3_PERSON_H
