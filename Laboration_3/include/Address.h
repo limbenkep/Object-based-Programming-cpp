@@ -7,8 +7,9 @@
  * The post number (postNumber)
  * the name of the city (cityName)
  * functions to get and set the above member data
- * A function that returns the full addrees as a single string and
- * A function that reads informtion about a person's address and returns the information in object of type Address
+ * overload operators for <, ==, << and >>
+ * A function that prints full address
+ * A function that reads data about a person's address and returns an Address object
  */
 #ifndef LABORATION_3_ADDRESS_H
 #define LABORATION_3_ADDRESS_H
@@ -59,10 +60,9 @@ public:
 
 
     /**
-     * combines streetName,postNumber and cityName to give  full address
-     * @return full address in the form of a string.
+     * receives an Address prints  full address
      */
-    string fullAddress();
+    void printAddress(const Address &pAddress)const;
 
     /**
      * prompts user for street name, post number and city name

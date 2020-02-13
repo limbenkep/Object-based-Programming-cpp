@@ -56,13 +56,18 @@ bool Name::operator<(const Name &name) const
     }
 }
 
+void Name::printName(const Name &pName) const
+{
+    cout << "\nName: "<< pName.getFirstName() << " " << pName.getLastName();
+}
+
+
 const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry
 
 ostream &operator<<(ostream &os, const Name &name)
 {
     os << name.getFirstName() << DELIM;
     os << name.getLastName();
-    //honorine|lima
     return os;
 }
 
@@ -99,3 +104,5 @@ Name Name::readName()
 
     return myName;
 }
+
+

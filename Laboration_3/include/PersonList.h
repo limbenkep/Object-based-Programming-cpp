@@ -1,7 +1,19 @@
 //
 // Created by limbe on 2020-02-07.
 //
-
+/*
+ * This class a vector named people of type Person and file name (fileName)  of type string.
+ * The class stores Person objects in a the vector people and have function that allows user
+ * to read List of persons from a file,
+ *to enter data on a new person,
+ * to sort Person objects in list by Name,
+ * To sort list of Person objects by social security number,
+ * To sort list of  Person objects by shoe size,
+ * To get number of persons in the list,
+ * To save List of persons in a file,
+ * To print all persons on the List unsorted, and
+ * read data on a person at a particular position on the list.
+ */
 #ifndef LABORATION_3_PERSONLIST_H
 #define LABORATION_3_PERSONLIST_H
 
@@ -31,7 +43,7 @@ public:
     /*
  * the function receives a Person object and adds to the vector
  */
-    void addPerson(const Person &pPerson);
+    void addPersonToList(const Person &pPerson);
 
 /*
  * gets the number of persons in the vector and returns it as an int.
@@ -57,6 +69,11 @@ public:
      * prints all persons in the vector people.
      */
     void printPeople();
+    /*
+     * Allows the user to enter dat on a person through the keyboard and
+     * returns a Person object
+     */
+    Person readNewPerson();
 };
 
 

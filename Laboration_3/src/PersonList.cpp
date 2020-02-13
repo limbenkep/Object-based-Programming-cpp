@@ -25,22 +25,12 @@ void PersonList::setFileName(const string &pFileName)
     fileName = pFileName;
 }
 
-/*
- * the function receives a vector by referens,
- * reads in data for a person and adds a new person to the vector
- */
-void PersonList::addPerson(const Person &pPerson)
+
+void PersonList::addPersonToList(const Person &pPerson)
 {
     people.push_back(pPerson);
 }
 
-/*void PersonList::printPeople(vector<Person> &people)
-{
-    for(auto person: people )
-    {
-        person.showPerson(person);
-    }
-}*/
 
 int PersonList::getListSize()
 {
@@ -101,10 +91,18 @@ void PersonList::printPeople()
 {
     for (const auto& person: people)
     {
-        cout << person << endl;
+        person.printPerson(person);
     }
 
 }
+
+Person PersonList::readNewPerson()
+{
+    Person tmpPerson;
+    return tmpPerson.readPerson();
+}
+
+
 
 
 

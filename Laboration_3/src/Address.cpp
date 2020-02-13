@@ -50,9 +50,10 @@ void Address::setCityName(const string &pCityName)
     cityName = pCityName;
 }
 
-string Address::fullAddress()
+void Address::printAddress(const Address &pAddress)const
 {
-    return streetName + "\n" + postNumber + "\n" + cityName;
+    cout << "\nAddress: " << pAddress.getStreetName() << ", " << pAddress.getPostNumber()
+    << ", " << pAddress.getCityName() << ".";
 }
 
 bool Address::operator==(const Address &address) const
@@ -72,6 +73,7 @@ bool Address::operator<(const Address &address) const
     }
 }
 
+
 const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry
 
 ostream &operator<<(ostream &os, const Address &address)
@@ -84,18 +86,25 @@ ostream &operator<<(ostream &os, const Address &address)
 
 istream &operator>>(istream &is, Address &address)
 {
-    string tmpString;
-    getline (is, tmpString, DELIM);// read with getline till the THE aharacter '|' (DELIM)
-    address.setStreetName(tmpString);
+    Address myAddress;
+    string myStreetName;
+    string myPostNumber;
+    string myCityName;
+    cout << "\nEnter street name: ";
+    getline (is, myStreetName);
+    myAddress.setStreetName(myStreetName);
 
-    getline (is, tmpString, DELIM); // continue reading with getline till it reads DELIM
-    address.setPostNumber(tmpString);
+    cout << "\nEnter post number: ";
+    getline (is, myPostNumber);
+    myAddress.setPostNumber(myPostNumber);
 
-    getline (is, tmpString);// continue reading till the end of the line of the Istream
-    address.setCityName(tmpString);
+    cout << "\nEnter city name: ";
+    getline (is, myCityName);
+    myAddress.setCityName(myCityName);
 
     return is;
 }
+
 
 Address Address::readAddress()
 {

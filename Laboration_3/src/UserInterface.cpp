@@ -14,70 +14,35 @@ int UserInterface::menuChoice()
 {
     cout << "\n\tTo read List of persons from a file, enter '0'."<<endl
     << "\tTo enter data on a new person, enter '1'."<<endl
-    << "\tTo sort list of persons by Name enter '2' "<<endl
-    << "\tTo sort list of persons by social security number enter '3'."<<endl
-    << "\tTo sort list of persons by shoe size enter '4'."<<endl
+    << "\tTo list of persons sorted by Name enter '2' "<<endl
+    << "\tTo print list of persons sorted by social security number enter '3'."<<endl
+    << "\tTo list of persons sorted by shoe size enter '4'."<<endl
     << "\tTo get number of persons in the list enter '5'."<<endl
     << "\tTo save List of persons in a file, enter '6'."<<endl
-    << "\tTo print all persons on the List, enter '7'."<<endl
+    << "\tTo print all persons on the List unsorted, enter '7'."<<endl
     << "\tTo read data on a person at a particular position on the list enter '8' "<<endl
     << "\tTo exit program enter '9'"<<endl
     << "\tMake a choice: ";
     int choice = -1;
+    int noChoice = 10;
     cin>>choice;
-    cin.ignore(1000, '\n');
-    while (choice <0 || choice >9)
+    if (!cin)
     {
-        cout << "invalid choice. Choice must lise between 0 and 9.\n Make a choice:";
-        cin>>choice;
+        cin.clear();
         cin.ignore(1000, '\n');
+        return noChoice;
+
     }
+    cin.ignore(1000, '\n');
 
     return choice;
 }
 
 void UserInterface::addPersonToList()
 {
-    Person newPerson = readPerson();
-    personList.addPerson(newPerson);
-}
-
-Person UserInterface::readPerson()
-{
-    string tmpString;
-    Name tmpName;
-    Address addr;
-    Person pers;
-    cout << "\n\nTo add person to the list enter the following data:\nFirst name: ";
-    getline(cin, tmpString);
-    tmpName.setFirstName(tmpString);
-
-    cout << "\nLast name: ";
-    getline(cin, tmpString);
-    tmpName.setLastName(tmpString);
-    pers.setName(tmpName);
-
-    cout << "\nAddress street name: ";
-    getline(cin, tmpString);
-    addr.setStreetName(tmpString);
-
-    cout << "\nPost number: ";
-    getline(cin, tmpString);
-    addr.setPostNumber(tmpString);
-
-    cout << "\nCity name: ";
-    getline(cin, tmpString);
-    addr.setCityName(tmpString);
-    pers.setAddress(addr);
-
-    cout <<"\nSocial security number: ";
-    getline(cin, tmpString);
-    pers.setPersNr(tmpString);
-    cout <<"\nSocial shoe size: ";
-    int tmp = 0;
-    cin>> tmp;
-    pers.setShoeNr(tmp);
-    return pers;
+    Person newPerson;
+    newPerson = personList.readNewPerson();
+    personList.addPersonToList(newPerson);
 }
 
 void UserInterface::printPersonList()
@@ -88,7 +53,7 @@ void UserInterface::printPersonList()
 string UserInterface::readFileName()
 {
     string tmpString;
-    cout << "\nEnter the name of the file to which you want to save list of people: ";
+    cout << "\nEnter the name of the file: ";
     getline(cin, tmpString);
     return tmpString;
 }
@@ -116,25 +81,24 @@ void UserInterface::readListFile()
     {
         cout <<"No file named '" << fileName << "' was found."<< endl;
     }
-
 }
 
-PersonList UserInterface::listNameSort()
+void UserInterface::printListNameSort()
 {
     personList.sortPeopleByName();
-    return personList;
+    personList.printPeople();
 }
 
-PersonList UserInterface::listPersNrSort()
+void UserInterface::printListPersNrSort()
 {
     personList.sortPeopleByPersNr();
-    return personList;
+    personList.printPeople();
 }
 
-PersonList UserInterface::listShoeNrSort()
+void UserInterface::printListShoeNrSort()
 {
     personList.sortPeopleByShoeNr();
-    return personList;
+    personList.printPeople();
 }
 
 int UserInterface::listSize()
@@ -160,15 +124,15 @@ void UserInterface::run()
                 nextMoveKey();
                 break;
             case 2:
-                listNameSort();
+                printListNameSort();
                 nextMoveKey();
                 break;
             case 3:
-                listPersNrSort();
+                printListPersNrSort();
                 nextMoveKey();
                 break;
             case 4:
-                listShoeNrSort();
+                printListShoeNrSort();
                 nextMoveKey();
                 break;
             case 5:
@@ -191,8 +155,9 @@ void UserInterface::run()
             case 9:
                 again = false;
                 break;
+             //case 10
             default:
-                cout<< "\nChoose a value between 0 and 9" << endl;
+                cout<< "\nInvalid choice. Choose a value between 0 and 9" << endl;
                 break;
 
         }

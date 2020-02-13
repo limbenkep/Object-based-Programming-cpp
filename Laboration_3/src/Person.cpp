@@ -130,12 +130,16 @@ istream &operator>>(istream &is, Person &person)
 }
 
 
-/*
-void Person::showPerson(const Person &pPerson)
+
+void Person::printPerson(const Person &pPerson) const
 {
-    cout<< "\nFull names:\n" << pPerson.getName().fullName() << "\nAddress:\n" << pPerson.getAddress().fullAddress()
-        << "\nSocial security number:\n" << pPerson.getPersNr() << "\nShoe size:\n" <<pPerson.getShoeNr()<<endl;
-}*/
+    Name tmpName = pPerson.getName();
+    Address addr= pPerson.getAddress();
+    tmpName.printName(tmpName);
+    addr.printAddress(addr);
+
+    cout << "\nSocial security number: " << pPerson.getPersNr() << "\nShoe size:" <<pPerson.shoeNr<<endl;
+}
 
 Person Person::readPerson()
 {

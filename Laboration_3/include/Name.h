@@ -6,8 +6,9 @@
  * Person's first name(firstName),
  * Person's last Name (lastName),
  * functions to get and set the above member data,
- * A function that returns full name as a single string, and
- * And a function that reads the first and last name from the keyboard and return an obkect of type Name
+ * overload operators for <, ==, << and >>
+ * A function thats prints full name on the screen, and
+ * And a function that reads the first and last name from the keyboard and return a Name object
  */
 
 #ifndef LABORATION_3_NAME_H
@@ -56,6 +57,9 @@ public:
      * returns an object of type Name.
      */
     Name readName();
+    //void printName(const Name &pName) const;
+    void printName(const Name &pName) const;
+
 };
 
 /*

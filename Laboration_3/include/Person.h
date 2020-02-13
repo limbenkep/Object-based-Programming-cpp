@@ -7,6 +7,7 @@
  * functions that get and set the above member data
  * The function showPerson that prints a given person's information on the screen
  * a function read person that reads information about a person and returns an obect of class Person.
+ *  overload operators for <, ==, << and >>
  */
 #ifndef LABORATION_3_PERSON_H
 #define LABORATION_3_PERSON_H
@@ -69,9 +70,10 @@ public:
 /*
      * receives an object of type Person and prints the information: Name, address, social security number and shoe size
      *//*
-
-    void Person::showPerson(const Person &pPerson);
 */
+
+    void printPerson(const Person &person) const ;
+
 
 };
 
