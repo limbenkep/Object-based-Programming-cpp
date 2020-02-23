@@ -1,12 +1,13 @@
 #include "Prototypes.h"
 #include "memstat.hpp"
+#include "IntArray.h"
 #include <iostream>
 #include <string>
 #include <iomanip>
 #include <chrono>
 
 int main() {
-    assignmentFunction();
+    /*assignmentFunction();
 
     // Example usage of <chrono>
     auto timeStart = std::chrono::high_resolution_clock::now();
@@ -23,7 +24,24 @@ int main() {
 
     std::cout << "Duration = "
          << seconds
-         << " [s]" <<  std::endl;
+         << " [s]" <<  std::endl;*/
+
+    IntArray intArray5000(5000);
+    //intArray5000.setSize(5000);
+    intArray5000.fillIntArray();
+    int *myarr = new int[5000];
+    myarr = intArray5000.getArr();
+
+    for (int i = 0; i < 10; i++ )
+        cout<< myarr[i]<< endl;
+    delete[](myarr);
+    myarr = nullptr;
+    //IntArray intArray1000()
+    cout << intArray5000.getSize()<<endl;
+
+
+
+
 
     return 0;
 }

@@ -1,5 +1,6 @@
 #ifndef DT018G_PROTOTYPES_H
 #define DT018G_PROTOTYPES_H
+#include "IntArray.h"
 
 /**
  * This is a dummy prototype used only to enforce proper file structure,
