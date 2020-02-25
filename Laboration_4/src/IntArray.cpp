@@ -3,15 +3,14 @@
 //
 
 #include "IntArray.h"
-
-IntArray::IntArray() : size(0)
+IntArray::IntArray(): size(0), maxSize(0)
 {
     arr = nullptr;
 }
 
-IntArray::IntArray( size_t pSize) : size(pSize)
+IntArray::IntArray( size_t pmaxSize) : size(0), maxSize(pmaxSize)
 {
-    arr = new int[size];
+    arr = new int[maxSize];
 }
 
 IntArray::~IntArray()
@@ -41,7 +40,7 @@ IntArray& IntArray::operator=(const IntArray &pIntArr)
         if (this != &pIntArr)
         {
             delete[]arr;
-            arr = new int[pIntArr.size];
+            arr = new int[pIntArr.maxSize];
             size = pIntArr.size;
             for (size_t i = 0; i < pIntArr.size; i++)
                 arr[i] = pIntArr.arr[i];
@@ -79,16 +78,20 @@ int& IntArray::operator[] (int index)
 void IntArray::fillIntArray()
 {
 
-    for(size_t i=0; i<size ; i++)
+    for(size_t i=0; i<maxSize; i++)
+    {
         arr[i] = randomNumber();
+    }
+    size = maxSize;
 }
 
 int IntArray::randomNumber()
 {
-    int max = static_cast<int>(size);
+    int pSize= static_cast<int>(size);
+    int maxNumber = pSize-1;
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
-    std::uniform_int_distribution<> dis(0, max-1);
+    std::uniform_int_distribution<> dis(0, maxNumber);
     return dis(gen);
 }
 
@@ -231,6 +234,8 @@ void IntArray::quick2()
 
     quickSort2(0,size-1);
 }
+
+
 /*
 const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry
 ostream &operator<<(ostream &os, const IntArray &pArray)

@@ -1,7 +1,12 @@
 //
 // Created by limbe on 2020-02-19.
 //
-
+/*
+ * The class IntArray has an array , maximum size and size of the array as member data. This class has functions to
+ * load the array with random numbers and functions to sort the array using two variants of quick sort method,
+ * two variants of bubble sort, selection sort and insertion sort
+ * it also has assigment,equal to, not eual to and less than overload constructors
+ */
 #ifndef LABORATION_4_INTARRAY_H
 #define LABORATION_4_INTARRAY_H
 
@@ -18,12 +23,13 @@ class IntArray
 private:
     int*arr; //pointer to array
     size_t size; //actual size of the array
+    size_t maxSize; //mazimum array capacity
 public:
     IntArray();
-
-    explicit IntArray(size_t pSize);
+    explicit IntArray(size_t pMaxSize);
 
     virtual ~IntArray();
+
 
     //getters and setters
     int *getArr() const;
@@ -31,20 +37,16 @@ public:
     size_t getSize() const;
 
     void setSize(size_t size);
-
+    //asssignment overload operator
     IntArray& operator=(const IntArray &pIntArr);
     //Index operator
     int& operator[] (int index);
-    //overloaded operator for equator operator
+    //overloaded operator for equal to operator
     bool operator==(const IntArray &pIntArr)const;
-    //overloaded operator for equator operator
+    //overloaded operator for not equal to  operator
     bool operator!=(const IntArray &pIntArr)const;
-    //overloaded operator for equator operator
+    //overloaded operator for less operator
     bool operator<(const IntArray &pIntArr)const;
-
-
-
-
 
     //member functions
     int randomNumber();
@@ -60,10 +62,6 @@ public:
 
 
 };
-//output operator for printing to a file
-//ostream &operator<<(ostream &os, const int &pArray);
 
-//input operator for reading from  a file
-//istream &operator>>(istream &is, int &pArray);
 
 #endif //LABORATION_4_INTARRAY_H
