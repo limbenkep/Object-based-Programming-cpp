@@ -17,6 +17,7 @@ IntArray::~IntArray()
 {
     delete [] arr;
     arr = nullptr;
+    cout << __func__ <<"I am destroyed\n";
 }
 
 int *IntArray::getArr() const
@@ -77,22 +78,28 @@ int& IntArray::operator[] (int index)
 
 void IntArray::fillIntArray()
 {
-
+    //cout << "max size " << maxSize << endl;
     for(size_t i=0; i<maxSize; i++)
     {
-        arr[i] = randomNumber();
+        //cout << "Current value of i= " << i;
+        const int num = randomNumber();
+        //cout << ", new number is " << num << endl;
+        arr[i] = num;
     }
     size = maxSize;
+    //cout << "size " << size << endl;
 }
 
 int IntArray::randomNumber()
 {
-    int pSize= static_cast<int>(size);
-    int maxNumber = pSize-1;
+    int maxNumber = static_cast<int>(maxSize);
+
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
-    std::uniform_int_distribution<> dis(0, maxNumber);
-    return dis(gen);
+    std::uniform_int_distribution<int> distribution(0,maxNumber-1);
+    int number = distribution(gen);
+    //int number = rand() % maxNumber;
+    return number;
 }
 
 void IntArray::bubbleSort1()
@@ -103,7 +110,7 @@ void IntArray::bubbleSort1()
         {
             if (arr[i] > arr[i + 1])
             {
-                swap(arr[i], arr[i + 1]);
+                swapValue(arr[i], arr[i + 1]);
             }
         }
     }
@@ -119,7 +126,7 @@ void IntArray::bubbleSort2()
         {
             if (arr[i] > arr[i + 1])
             {
-                swap(arr[i], arr[i + 1] );
+                swapValue(arr[i], arr[i + 1] );
                 sorted = false;
             }
         }
@@ -129,24 +136,23 @@ void IntArray::bubbleSort2()
 
 void IntArray::selectionSort()
 {
-
-    int smallIdx = 0;
     for (size_t i=0; i < size-1; i++)
     {
-        smallIdx = i; // Index of the first unsorted element to the right of the last sorted elements.
-        for (size_t j=i+1; i < size; j++) //iterates through the rest of the elements to the right of smallIdx
+        int smallIdx = i; // Index of the first unsorted element to the right of the last sorted elements.
+        for (size_t j=i+1; j < size; j++) //iterates through the rest of the elements to the right of smallIdx
         {
-            if (arr[i] < arr[smallIdx])
+            if (arr[j] < arr[smallIdx])
             {
                 smallIdx=j;// saves the index of the smallest element in the unsorted part of the array
             }
-            if (smallIdx !=i)// checks if there is any element small than the ith element and if so switch places
-            {
-                swap(arr[i], arr[smallIdx]);
-            }
+        }
+        if (smallIdx !=i)// checks if there is any element small than the ith element and if so switch places
+        {
+            swapValue(arr[i], arr[smallIdx]);
         }
     }
 }
+
 
 void IntArray::insertionSort()
 {
@@ -178,25 +184,31 @@ void IntArray::quickSort1(size_t first, size_t last)
         size_t high = last;
         if (arr[first] > arr[last])
         {
-            swap(arr[first], arr[last]);
+            swapValue(arr[first], arr[last]);
+        }
+        do
+        {
             do
             {
-                do{low++;} while (arr[low] < arr[first]);
-                do{high--;} while (arr[high] > arr[first]);
-                if (low <= high)
-                    swap(arr[low], arr[high]);
+                low++;
+            }while (arr[low] < arr[first]);
+            do
+            {
+                high--;
+            }while (arr[high] > arr[first]);
+            if (low < high)
+                swapValue(arr[low], arr[high]);
 
-            }while (low<=high);
-            swap (arr[first], arr[high]);
-            quickSort1(first, high - 1); //sort left hand part of the list
-            quickSort1(first, high - 1); //sort right hand part of the list
-        }
+        }while (low<=high);
+        swapValue(arr[first], arr[high]);
+        quickSort1(first, high - 1); //sort left hand part of the list
+        quickSort1(first, high - 1); //sort right hand part of the list
 
     }
 }
 void IntArray::quick1()
 {
-    quickSort1(0,size-1);
+    quickSort1(0,maxSize-1);
 }
 
 
@@ -218,7 +230,7 @@ void IntArray:: quickSort2(size_t first, size_t last)
         }
         if(low<=high)
         {
-            swap(arr[low], arr[high]);
+            swapValue(arr[low], arr[high]);
             low++;
             high--;
         }
@@ -231,10 +243,28 @@ void IntArray:: quickSort2(size_t first, size_t last)
 
 void IntArray::quick2()
 {
-
-    quickSort2(0,size-1);
+  cout << "Inside " << __func__ << endl;
+    //quickSort2(0,size-1);
+    quickSort2(0,maxSize-1);
 }
 
+void IntArray::swapValue(int &a, int &b)
+{
+    int tmp = a;
+    a = b;
+    b = tmp;
+}
+
+void IntArray::printArray()
+{
+    for(size_t i = 0; i<size; i++ )
+    {
+        cout << arr[i] << endl;
+    }
+    cout<< "end of array"<< endl;
+
+
+}
 
 /*
 const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry

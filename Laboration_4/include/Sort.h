@@ -24,7 +24,26 @@ private:
     //Const declaration
     const int numberOfRuns = 10;
     const char TAB = '\t';
-    const string fileName;
+    const string fileName{"result.txt"};
+
+    /*void setIntArray(const IntArray &intArray);
+    void printAndSave(const string &sortName, int pSize, double meanSortTime);
+    double computeMeanTime(const vector<double>&sortDuration);
+    void bubbleAlgorithm1();
+    void bubbleAlgorithm2();
+    void quickAlgorithm1();
+    void quickAlgorithm2();
+    void selectionAlgorithm();
+    void insertionAlgorithm();*/
+
+public:
+    Sort();
+
+    explicit Sort(const IntArray &intArray);
+
+    virtual ~Sort();
+    const IntArray &getIntArray() const;
+    void allSortAlgorithm();
 
     void setIntArray(const IntArray &intArray);
     void printAndSave(const string &sortName, int pSize, double meanSortTime);
@@ -35,15 +54,6 @@ private:
     void quickAlgorithm2();
     void selectionAlgorithm();
     void insertionAlgorithm();
-
-public:
-    Sort();
-
-    explicit Sort(const IntArray &intArray);
-
-    virtual ~Sort();
-    const IntArray &getIntArray() const;
-    void allSortAlgorithm();
 };
 
 

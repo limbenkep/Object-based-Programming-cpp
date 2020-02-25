@@ -16,6 +16,8 @@
 #include <string>
 #include <iomanip>
 #include <random>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 class IntArray
@@ -59,6 +61,8 @@ public:
     void quick1();
     void quickSort2(size_t first, size_t last);
     void quick2();
+    void swapValue(int &a, int &b);
+    void printArray();
 
 
 };

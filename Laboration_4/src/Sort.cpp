@@ -44,7 +44,7 @@ void Sort::bubbleAlgorithm1()
        time.push_back(sortTime);
    }
     int arraySize = intArray.getSize();
-    string sortName ("bubble sort 1");
+    string sortName ("bubbleSort1");
     double meanTime = computeMeanTime(time);
     printAndSave(sortName, arraySize, meanTime);
 
@@ -67,7 +67,7 @@ void Sort::bubbleAlgorithm2()
         time.push_back(sortTime);
     }
     int arraySize = intArray.getSize();
-    string sortName ("bubble sort 2");
+    string sortName ("bubbleSort2");
     double meanTime = computeMeanTime(time);
     printAndSave(sortName, arraySize, meanTime);
 
@@ -97,12 +97,14 @@ void Sort::quickAlgorithm1()
 
 void Sort::quickAlgorithm2()
 {
+    cout << "Attempting to do quick sort1" << endl;
     vector<double>time;
 
     for (int i = 0; i<numberOfRuns; i++)
     {
         intArray.fillIntArray();
         auto timeStart = std::chrono::high_resolution_clock::now();
+        cout << " Array filled for quick sort 2" << endl;
         intArray.quick2();
         auto timeEnd = std::chrono::high_resolution_clock::now();
         // calculate duration by subtracting start time from end time
@@ -111,7 +113,7 @@ void Sort::quickAlgorithm2()
         time.push_back(sortTime);
     }
     int arraySize = intArray.getSize();
-    string sortName ("Quick sort 2");
+    string sortName ("quickSort");
     double meanTime = computeMeanTime(time);
     printAndSave(sortName, arraySize, meanTime);
 }
@@ -132,7 +134,7 @@ void Sort::selectionAlgorithm()
         time.push_back(sortTime);
     }
     int arraySize = intArray.getSize();
-    string sortName ("Selection sort");
+    string sortName ("selectionSort");
     double meanTime = computeMeanTime(time);
     printAndSave(sortName, arraySize, meanTime);
 }
@@ -153,7 +155,7 @@ void Sort::insertionAlgorithm()
         time.push_back(sortTime);
     }
     int arraySize = intArray.getSize();
-    string sortName ("Insertion sort");
+    string sortName ("insertionSort");
     double meanTime = computeMeanTime(time);
     printAndSave(sortName, arraySize, meanTime);
 }
@@ -177,12 +179,22 @@ double Sort::computeMeanTime(const vector<double> &sortDuration)
 
 void Sort::allSortAlgorithm()
 {
-    quickAlgorithm1();
-    quickAlgorithm2();
+    cout << "Sorting everything....\n";
+    //quickAlgorithm1();
+    //cout << "After quick sort1\n";
+    //quickAlgorithm2();
+    //cout << "After quick sort2\n";
+
     selectionAlgorithm();
+    cout << "After selection sort1\n";
+
     insertionAlgorithm();
+    cout << "After INSERtion sort\n";
     bubbleAlgorithm1();
+    cout << "After bubble sort1\n";
+
     bubbleAlgorithm2();
+    cout << "After bubble sort2\n";
 }
 
 
