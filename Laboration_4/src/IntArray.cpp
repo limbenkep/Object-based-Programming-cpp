@@ -78,16 +78,12 @@ int& IntArray::operator[] (int index)
 
 void IntArray::fillIntArray()
 {
-    //cout << "max size " << maxSize << endl;
     for(size_t i=0; i<maxSize; i++)
     {
-        //cout << "Current value of i= " << i;
         const int num = randomNumber();
-        //cout << ", new number is " << num << endl;
         arr[i] = num;
     }
     size = maxSize;
-    //cout << "size " << size << endl;
 }
 
 int IntArray::randomNumber()
@@ -98,7 +94,6 @@ int IntArray::randomNumber()
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
     std::uniform_int_distribution<int> distribution(0,maxNumber-1);
     int number = distribution(gen);
-    //int number = rand() % maxNumber;
     return number;
 }
 
@@ -176,77 +171,6 @@ void IntArray::insertionSort()
 
 }
 
-void IntArray::quickSort1(size_t first, size_t last)
-{
-    if (first < last)
-    {
-        size_t low = first;
-        size_t high = last;
-        if (arr[first] > arr[last])
-        {
-            swapValue(arr[first], arr[last]);
-        }
-        do
-        {
-            do
-            {
-                low++;
-            }while (arr[low] < arr[first]);
-            do
-            {
-                high--;
-            }while (arr[high] > arr[first]);
-            if (low < high)
-                swapValue(arr[low], arr[high]);
-
-        }while (low<=high);
-        swapValue(arr[first], arr[high]);
-        quickSort1(first, high - 1); //sort left hand part of the list
-        quickSort1(first, high - 1); //sort right hand part of the list
-
-    }
-}
-void IntArray::quick1()
-{
-    quickSort1(0,maxSize-1);
-}
-
-
-void IntArray:: quickSort2(size_t first, size_t last)
-{
-
-    size_t low = first;
-    size_t high = last;
-    int x = arr[(first + last) / 2];      // choose middle value to be pivot value
-    do
-    {
-        while(arr[low] < x) // search from beginning until a value that is greater than x is met
-        {
-            low++;
-        }
-        while(arr[high] > x)
-        {  // search from the end backwards until a value less than x is found
-            high--;
-        }
-        if(low<=high)
-        {
-            swapValue(arr[low], arr[high]);
-            low++;
-            high--;
-        }
-    }while(low <= high);
-    if(first < high)
-        quickSort2(first, high);
-    if(low < last)
-        quickSort2(low, last);
-}
-
-void IntArray::quick2()
-{
-  cout << "Inside " << __func__ << endl;
-    //quickSort2(0,size-1);
-    quickSort2(0,maxSize-1);
-}
 
 void IntArray::swapValue(int &a, int &b)
 {
@@ -266,20 +190,172 @@ void IntArray::printArray()
 
 }
 
-/*
-const char DELIM = '|';// '|' is a delimiter that specifies the boundary of each data entry
-ostream &operator<<(ostream &os, const IntArray &pArray)
+double IntArray::computeMeanTime(const vector<double> &sortDuration)
 {
-    size_t pSize = pArray.getSize();
-    int *pArr = new int[pSize];
-    pArr = pArray.getArr();
-    for (int i=0; i<pSize; i++)
-        os << pArr[i]<<DELIM;
-    return os;
+    double meanTime = accumulate(sortDuration.begin(), sortDuration.end(), 0.0)/numberOfRuns;
+    return meanTime;
 }
-istream &operator>>(istream &is, IntArray &pArray)
-{
-    string tmpString;
-    for (int i)
 
-}*/
+void IntArray::bubbleAlgorithm1()
+{
+    vector<double>time;
+
+    for (int i = 0; i<numberOfRuns; i++)
+    {
+        fillIntArray();
+        auto timeStart = std::chrono::high_resolution_clock::now();
+        bubbleSort1();
+        auto timeEnd = std::chrono::high_resolution_clock::now();
+        // calculate duration by subtracting start time from end time
+        size_t duration = std::chrono::duration_cast<std::chrono::milliseconds>(timeEnd - timeStart).count();
+        double sortTime = 1.0 * duration / 1000;// gives time in seconds
+        time.push_back(sortTime);
+    }
+    string sortName ("bubbleSort1");
+    double meanTime = computeMeanTime(time);
+    printAndSave(sortName, meanTime);
+
+
+}
+
+void IntArray::printAndSave(const string &sortName, double meanSortTime)
+{
+    cout << "Algorithm name: " << sortName << TAB  << " array size: " << size << TAB << " average time: " << meanSortTime << " s" << endl;
+
+    ofstream myfile(fileName.c_str() , std::fstream::in | std::fstream::app);
+
+    myfile << sortName << TAB  << size << TAB << meanSortTime << endl;
+    myfile.close();
+
+}
+
+void IntArray::bubbleAlgorithm2()
+{
+    vector<double>time;
+
+    for (int i = 0; i<numberOfRuns; i++)
+    {
+        fillIntArray();
+        auto timeStart = std::chrono::high_resolution_clock::now();
+        bubbleSort2();
+        auto timeEnd = std::chrono::high_resolution_clock::now();
+        // calculate duration by subtracting start time from end time
+        size_t duration = std::chrono::duration_cast<std::chrono::milliseconds>(timeEnd - timeStart).count();
+        double sortTime = 1.0 * duration / 1000;// gives time in seconds
+        time.push_back(sortTime);
+    }
+    string sortName ("bubbleSort2");
+    double meanTime = computeMeanTime(time);
+    printAndSave(sortName, meanTime);
+}
+
+
+void IntArray::quickAlgorithm()
+{
+    cout << "Attempting to do quick sort1" << endl;
+    vector<double>time;
+
+    for (int i = 0; i<numberOfRuns; i++)
+    {
+        fillIntArray();
+        auto timeStart = std::chrono::high_resolution_clock::now();
+        quick(arr, maxSize);
+        auto timeEnd = std::chrono::high_resolution_clock::now();
+        // calculate duration by subtracting start time from end time
+        size_t duration = std::chrono::duration_cast<std::chrono::milliseconds>(timeEnd - timeStart).count();
+        double sortTime = 1.0 * duration / 1000;// gives time in seconds
+        time.push_back(sortTime);
+    }
+    string sortName ("quickSort");
+    double meanTime = computeMeanTime(time);
+    printAndSave(sortName, meanTime);
+}
+
+void IntArray::selectionAlgorithm()
+{
+    vector<double>time;
+
+    for (int i = 0; i<numberOfRuns; i++)
+    {
+        fillIntArray();
+        auto timeStart = std::chrono::high_resolution_clock::now();
+        selectionSort();
+        auto timeEnd = std::chrono::high_resolution_clock::now();
+        // calculate duration by subtracting start time from end time
+        size_t duration = std::chrono::duration_cast<std::chrono::milliseconds>(timeEnd - timeStart).count();
+        double sortTime = 1.0 * duration / 1000;// gives time in seconds
+        time.push_back(sortTime);
+    }
+    string sortName ("selectionSort");
+    double meanTime = computeMeanTime(time);
+    printAndSave(sortName, meanTime);
+}
+
+void IntArray::insertionAlgorithm()
+{
+    vector<double>time;
+
+    for (int i = 0; i<numberOfRuns; i++)
+    {
+        fillIntArray();
+        auto timeStart = std::chrono::high_resolution_clock::now();
+        insertionSort();
+        auto timeEnd = std::chrono::high_resolution_clock::now();
+        // calculate duration by subtracting start time from end time
+        size_t duration = std::chrono::duration_cast<std::chrono::milliseconds>(timeEnd - timeStart).count();
+        double sortTime = 1.0 * duration / 1000;// gives time in seconds
+        time.push_back(sortTime);
+    }
+    string sortName ("insertionSort");
+    double meanTime = computeMeanTime(time);
+    printAndSave(sortName, meanTime);
+}
+
+
+void IntArray::allSortAlgorithm()
+{
+    quickAlgorithm();
+    cout << "After quick sort2\n";
+
+    selectionAlgorithm();
+    cout << "After selection sort1\n";
+
+    insertionAlgorithm();
+    cout << "After INSERtion sort\n";
+    bubbleAlgorithm1();
+    cout << "After bubble sort1\n";
+
+    bubbleAlgorithm2();
+    cout << "After bubble sort2\n";
+}
+
+
+void IntArray:: quickSort(int *a, int first, int last) {
+    int low = first;// set low to be the starting index
+    int high = last;// set low to be the ending index
+    int x = a[(first+last)/2];      // choose the mddle value to be the pivot element
+
+    do {
+        while(a[low] < x) {  // search from the the starting index for the first value that is greater than the pivot
+            low++;
+        }
+        while(a[high] > x) {  // search from the ending index backwards for the first value that is less than the pivot value
+            high--;
+        }
+
+        if(low<=high) {
+            swap(a[low],a[high]);
+            low++;
+            high--;
+        }
+    } while(low <= high);
+
+    if(first < high)
+        quickSort(a, first, high);
+    if(low < last)
+        quickSort(a, low, last);
+}
+
+void IntArray:: quick(int *a, int n) {
+    quickSort(a, 0, n - 1);
+}

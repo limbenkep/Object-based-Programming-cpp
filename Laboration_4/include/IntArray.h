@@ -18,6 +18,11 @@
 #include <random>
 #include <cstdlib>
 #include <ctime>
+#include <chrono>
+#include <numeric>
+#include <fstream>
+#include <vector>
+
 using namespace std;
 
 class IntArray
@@ -26,6 +31,12 @@ private:
     int*arr; //pointer to array
     size_t size; //actual size of the array
     size_t maxSize; //mazimum array capacity
+
+    //Const declaration
+    const int numberOfRuns = 10;
+    const char TAB = '\t';
+    const string fileName{"result.txt"};
+
 public:
     IntArray();
     explicit IntArray(size_t pMaxSize);
@@ -57,12 +68,19 @@ public:
     void bubbleSort2();
     void selectionSort();
     void insertionSort();
-    void quickSort1(size_t first, size_t last);
-    void quick1();
-    void quickSort2(size_t first, size_t last);
-    void quick2();
     void swapValue(int &a, int &b);
     void printArray();
+    void printAndSave(const string &sortName, double meanSortTime);
+    double computeMeanTime(const vector<double>&sortDuration);
+    void bubbleAlgorithm1();
+    void bubbleAlgorithm2();
+    void quickAlgorithm();
+    void selectionAlgorithm();
+    void insertionAlgorithm();
+    void allSortAlgorithm();
+
+    void quick(int *a, int n);
+    void quickSort(int *a, int first, int last);
 
 
 };
