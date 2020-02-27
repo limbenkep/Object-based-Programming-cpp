@@ -37,6 +37,45 @@ private:
     const char TAB = '\t';
     const string fileName{"result.txt"};
 
+    //member functions
+    //generates a random integer between 0 to maxSize-1 and returnn the integer
+    int randomNumber();
+    // fills array with randomly generated numbers
+    void fillIntArray();
+    //Sort the array by bubble sort without taking consideration if array is sorted or not
+    void bubbleSort1();
+    //sort the array by bubble sort taking consideration if array is sorted or not
+    void bubbleSort2();
+    //sort array by selection sort
+    void selectionSort();
+    //sort array by insertion sort
+    void insertionSort();
+
+    void printArray();
+    //print stats on screen and save to file
+    void printAndSave(const string &sortName, double meanSortTime);
+    //compute average time from vector and returns the avergae
+    double computeMeanTime(const vector<double>&sortDuration);
+    // function that calls quickSort function
+    void quick(int *a, int n);
+    //sort array by quick sort algorithm
+    void quickSort(int *a, int first, int last);
+    //calls function to fill array, start clock, calls function to sort by bubbleSort1, stop clock, compute time,  call
+    // function to print and save save stats
+    void bubbleAlgorithm1();
+    //calls function to fill array, start clock, calls function to sort by bubbleSort2, stop clock, compute time,  call
+    // function to print and save save stats
+    void bubbleAlgorithm2();
+    //calls function to fill array, start clock, calls function to sort by quickSort, stop clock, compute time,  call
+    // function to print and save save stats
+    void quickAlgorithm();
+    //calls function to fill array, start clock, calls function to sort by selectionsort, stop clock, compute time,  call
+    // function to print and save save stats
+    void selectionAlgorithm();
+    //calls function to fill array, start clock, calls function to sort by insertionSort, stop clock, compute time,  call
+    // function to print and save save stats
+    void insertionAlgorithm();
+
 public:
     IntArray();
     explicit IntArray(size_t pMaxSize);
@@ -61,26 +100,12 @@ public:
     //overloaded operator for less operator
     bool operator<(const IntArray &pIntArr)const;
 
-    //member functions
-    int randomNumber();
-    void fillIntArray();
-    void bubbleSort1();
-    void bubbleSort2();
-    void selectionSort();
-    void insertionSort();
-    void swapValue(int &a, int &b);
-    void printArray();
-    void printAndSave(const string &sortName, double meanSortTime);
-    double computeMeanTime(const vector<double>&sortDuration);
-    void bubbleAlgorithm1();
-    void bubbleAlgorithm2();
-    void quickAlgorithm();
-    void selectionAlgorithm();
-    void insertionAlgorithm();
+
+    //calls functions for all the sorting algorithms; insertionAlgorithm, bubbleAlgorithm1, bubbleAlgorithm2,
+    // selectionAlgorithm,quickAlgorithm
     void allSortAlgorithm();
 
-    void quick(int *a, int n);
-    void quickSort(int *a, int first, int last);
+
 
 
 };

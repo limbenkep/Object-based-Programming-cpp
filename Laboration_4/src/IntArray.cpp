@@ -105,7 +105,7 @@ void IntArray::bubbleSort1()
         {
             if (arr[i] > arr[i + 1])
             {
-                swapValue(arr[i], arr[i + 1]);
+                swap(arr[i], arr[i + 1]);
             }
         }
     }
@@ -121,7 +121,7 @@ void IntArray::bubbleSort2()
         {
             if (arr[i] > arr[i + 1])
             {
-                swapValue(arr[i], arr[i + 1] );
+                swap(arr[i], arr[i + 1]);
                 sorted = false;
             }
         }
@@ -143,7 +143,7 @@ void IntArray::selectionSort()
         }
         if (smallIdx !=i)// checks if there is any element small than the ith element and if so switch places
         {
-            swapValue(arr[i], arr[smallIdx]);
+            swap(arr[i], arr[smallIdx]);
         }
     }
 }
@@ -172,12 +172,6 @@ void IntArray::insertionSort()
 }
 
 
-void IntArray::swapValue(int &a, int &b)
-{
-    int tmp = a;
-    a = b;
-    b = tmp;
-}
 
 void IntArray::printArray()
 {
@@ -333,7 +327,7 @@ void IntArray::allSortAlgorithm()
 void IntArray:: quickSort(int *a, int first, int last) {
     int low = first;// set low to be the starting index
     int high = last;// set low to be the ending index
-    int x = a[(first+last)/2];      // choose the mddle value to be the pivot element
+    int x = a[(first+last)/2];      // choose the middle value to be the pivot element
 
     do {
         while(a[low] < x) {  // search from the the starting index for the first value that is greater than the pivot
