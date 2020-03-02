@@ -2,9 +2,11 @@
 #include "memstat.hpp"
 #include <fstream>
 #include <string>
+#include <Song.h>
 
 int main()
 {
+    /*Time class test
     Time time;
     time.setSeconds(25);
     time.setMinutes(10);
@@ -48,7 +50,25 @@ int main()
         time1.setTime(temp);
 
     cout << "Time1 Hours:" <<time1.getHours() << "\tMinutes: " << time1.getMinutes() << "\tSeconds: " << time1.getSeconds() << endl;
+*/
+    Time time;
+    time.setSeconds(25);
+    time.setMinutes(10);
+    time.setHours(0);
+    Song song("Lost love", "Maria Carrie", time);
+    fstream outFile ("songList.txt", ios::out);
+    outFile << song << endl;
+    outFile.close();
 
+    Song song1;
+    fstream inFile ("songList.txt", ios::in);
+    inFile >> song1;
+
+
+    cout << song1.getSongTitle() << song1.getArtist()<< "\tTime:" << song.lengthToSec() << endl;
+    Time time1;
+    time1 = song1.getSongLength();
+    cout << "Hout: " << time1.getHours()<<"minutes: " << time1.getMinutes() << "Seconds: " << time1.getSeconds() << endl;
 
     return 0;
 }
