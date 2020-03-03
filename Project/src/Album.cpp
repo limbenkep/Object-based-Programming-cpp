@@ -67,7 +67,6 @@ ostream &operator<< (ostream &os, Album &album)
     os << album.sizeOfSongList() << endl;
     album.writeToFile(os);
     return os;
-
 }
 
 istream &operator>> (istream &is, Album &album)
