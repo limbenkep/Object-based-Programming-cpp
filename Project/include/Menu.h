@@ -14,6 +14,20 @@ class Menu
 private:
     vector<MenuItem>menuOptions;
     string menuTitle;
+    const string jukeBox{"Juke Box"};
+    const string file{"File"};
+    const string addAnAlbum{"Add an album"};
+    const string deleteAnAlbum{"Delete an album"};
+    const string print{"Print"};
+    const string exit{"exit"};
+    const string open{"Open"};
+    const string save{"Save"};
+    const string backToMainMenu{"Back to main menu"};
+    const string printAlbum{"Print one album"};
+    const string printByName{"Print all sorted by album name"};
+    const string printByTime{"Print all sorted by album total time"};
+    const string printSimpleSortedName{"Print simple sorted by album name"};
+    const string printSimpleSortedTime{"Print simple sorted by album total time"};
 
 public:
     Menu();
@@ -24,7 +38,7 @@ public:
 
     const string &getMenuTitle() const;
 
-    void setMenuTitle(const string &menuTitle);
+    void setMenuTitle(const string  &pMenuTitle);
 
     const vector<MenuItem> &getMenuOptions() const;
     //adds a menuItem to the vector list
@@ -33,6 +47,16 @@ public:
     void printMenuItems();
     //prompts user to make a choice and returns an int corresponding to the choice
     int getMenuChoice();
+    void executeMenu();
+    void startUpJukeBoxMenu();
+    void enabledJukeBoxMenu();
+    void enabledFileMenu();
+    void startUpFileMenu();
+    void startUpPrintMenu();
+    void enabledPrintMenu();
+
+
+
 
 
 };

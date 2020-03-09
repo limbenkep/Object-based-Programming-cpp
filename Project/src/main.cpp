@@ -4,6 +4,7 @@
 #include <string>
 #include <Song.h>
 #include <Album.h>
+#include <Menu.h>
 
 int main()
 {
@@ -105,6 +106,14 @@ int main()
     if (album < album1)
         cout << "album < album1" << endl;
     */
+    Menu menu;
+    menu.setMenuTitle("Jukebox");
+    menu.addItem("File...", true);
+    menu.addItem("Add an album", false);
+    menu.addItem("Delete an album",false);
+    menu.addItem("Print...", true);
+
+    menu.printMenuItems();
 
     return 0;
 }

@@ -32,5 +32,10 @@ void MenuItem::setEnabled(bool pEnabled)
     enabled = pEnabled;
 }
 
+bool MenuItem::operator==(const MenuItem &menuItem)
+{
+    return menuText == menuItem.menuText && enabled == menuItem.enabled;
+}
+
 MenuItem::~MenuItem()
 = default;

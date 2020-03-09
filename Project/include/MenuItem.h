@@ -1,7 +1,9 @@
 //
 // Created by limbe on 2020-03-03.
 //
-
+/*
+ *
+ */
 #ifndef PROJECT_MENUITEM_H
 #define PROJECT_MENUITEM_H
 
@@ -30,6 +32,8 @@ public:
     bool isEnabled() const;
 
     void setEnabled(bool enabled);
+
+    bool operator== (const MenuItem &menuItem);
 
 
 };
