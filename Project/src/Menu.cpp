@@ -5,8 +5,7 @@
 #include "Menu.h"
 
 Menu::Menu()
-{
-}
+= default;
 
 Menu::Menu(const vector<MenuItem> &menuOptions, const string &menuTitle) : menuOptions(menuOptions),
                                                                            menuTitle(menuTitle)
@@ -14,9 +13,7 @@ Menu::Menu(const vector<MenuItem> &menuOptions, const string &menuTitle) : menuO
 }
 
 Menu::~Menu()
-{
-
-}
+= default;
 
 const string &Menu::getMenuTitle() const
 {
@@ -39,7 +36,7 @@ void Menu::addItem(const string &pMenuText, bool pEnabled)
     menuOptions.push_back(item);
 }
 
-void Menu::printMenuItems()
+void Menu::printMenuItems() const
 {
     cout << "**** " << menuTitle << " ****" << endl;
     int i = 1;
@@ -53,7 +50,7 @@ void Menu::printMenuItems()
     }
 }
 
-int Menu::getMenuChoice()
+int Menu::getMenuChoice() const
 {
     vector<MenuItem> enabledOptions;
     for (const auto& idx: menuOptions)
@@ -63,34 +60,25 @@ int Menu::getMenuChoice()
             enabledOptions.push_back(idx);
         }
     }
+    int pSize = static_cast<int>(enabledOptions.size());
     printMenuItems();
-    cout << "\nEnter the number corresponding to the option you like to execute: ";
-    size_t choice = -1;
-    int noChoice = 0;
+    cout << "\nMy choice: ";
+    int choice = -1;
     cin>>choice;
-    if (!cin)
+    while(!cin||choice < 0 || choice >pSize)
     {
         cin.clear();
         cin.ignore(1000, '\n');
-        return noChoice;
+        cout << "Invalid entry. Enter a number between 1 and " << pSize <<endl;
+        cout << "\nMy choice: ";
+        cin>>choice;
     }
     cin.ignore(1000, '\n');
-
-    if (choice >0 && choice < enabledOptions.size() +1)
-    {
-        int myIndex = 0;
-        /*for (auto idx : menuOptions )
-        {
-            if (enabledOptions[choice -1] == idx)
-            {
-                return myIndex;
-            }
-            myIndex++;
-        }*/
-        auto it = find (menuOptions.begin(), menuOptions.end(), enabledOptions[choice-1]);
-        myIndex = it - menuOptions.begin();
-        return myIndex;
-    } else{ return noChoice;}
+    auto it = find (menuOptions.begin(), menuOptions.end(), enabledOptions[choice-1]);
+    cout <<"it - menuOptions.begin() is " <<it - menuOptions.begin() << endl;
+    int myIndex = it - menuOptions.begin();
+    cout << "MyIndex " << myIndex << endl;
+    return myIndex + 1;
 }
 
 void Menu::executeMenu()
@@ -101,12 +89,10 @@ void Menu::executeMenu()
         switch (getMenuChoice())
         {
             case 1:
-                //file
+                //fileMenu
 
         }
     }*/
-
-
 
 }
 
@@ -164,3 +150,5 @@ void Menu::enabledPrintMenu()
     addItem(printSimpleSortedTime, true);
     addItem(backToMainMenu, true);
 }
+
+

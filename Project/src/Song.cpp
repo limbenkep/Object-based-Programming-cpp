@@ -5,19 +5,16 @@
 #include "Song.h"
 
 Song::Song()
-{
-}
+= default;
 
-Song::Song(const string &pSongTitle, const string &pArtist, const Time &pSongLength) : songTitle(pSongTitle),
-                                                                                    artist(pArtist),
-                                                                                    songLength(pSongLength)
+Song::Song(const string &pSongTitle, const string &pArtist, const MyTime &pSongLength) : songTitle(pSongTitle),
+                                                                                         artist(pArtist),
+                                                                                         songLength(pSongLength)
 {
 }
 
 Song::~Song()
-{
-
-}
+= default;
 
 const string &Song::getSongTitle() const
 {
@@ -39,19 +36,19 @@ void Song::setArtist(const string &pArtist)
     artist = pArtist;
 }
 
-Time Song::getSongLength() const
+MyTime Song::getSongLength() const
 {
     return songLength;
 }
 
-void Song::setSongLength(const Time &pSongLength)
+void Song::setSongLength(const MyTime &pSongLength)
 {
     songLength = pSongLength;
 }
 
-Time Song::getlengthFromInt(int pTotalSec)
+MyTime Song::getlengthFromInt(int pTotalSec)
 {
-    Time tempTime;
+    MyTime tempTime;
     tempTime.setTime(pTotalSec);
     return tempTime;
 }
@@ -84,13 +81,9 @@ istream &operator>> (istream &is, Song &song)
     getline(is, tmpString, DELIM);
     song.setArtist(tmpString);
 
-    int totalSec = 0;
-    Time time;
+    MyTime time;
     is >> time;
     song.setSongLength(time);
-    /*is >> totalSec;
-    is.get();
-    song.setSongLength(song.getlengthFromInt(totalSec));*/
      return is;
 
 

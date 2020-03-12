@@ -33,7 +33,7 @@ public:
 
     void setEnabled(bool enabled);
 
-    bool operator== (const MenuItem &menuItem);
+    bool operator== (const MenuItem &menuItem) const;
 
 
 };

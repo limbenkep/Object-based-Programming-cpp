@@ -2,54 +2,54 @@
 // Created by limbe on 2020-03-01.
 //
 
-#include "Time.h"
+#include "MyTime.h"
 
-Time::Time(): hours(0), minutes(0), seconds(0)
+MyTime::MyTime(): hours(0), minutes(0), seconds(0)
 {
 }
 
-Time::Time(int pHours, int pMinutes, int pSeconds) : hours(pHours), minutes(pMinutes), seconds(pSeconds)
+MyTime::MyTime(int pHours, int pMinutes, int pSeconds) : hours(pHours), minutes(pMinutes), seconds(pSeconds)
 {
 }
 
-Time::~Time()
+MyTime::~MyTime()
 {
 
 }
 
-int Time::getHours() const
+int MyTime::getHours() const
 {
     return hours;
 }
 
-void Time::setHours(int pHours)
+void MyTime::setHours(int pHours)
 {
     hours = pHours;
 }
 
-int Time::getMinutes() const
+int MyTime::getMinutes() const
 {
     return minutes;
 }
 
-void Time::setMinutes(int pMinutes)
+void MyTime::setMinutes(int pMinutes)
 {
     minutes = pMinutes;
 }
 
-int Time::getSeconds() const
+int MyTime::getSeconds() const
 {
     return seconds;
 }
 
-void Time::setSeconds(int pSeconds)
+void MyTime::setSeconds(int pSeconds)
 {
     seconds = pSeconds;
 }
 
-Time Time::operator+(const Time &time) const
+MyTime MyTime::operator+(const MyTime &time) const
 {
-    Time sum;
+    MyTime sum;
     int totalSec=0;
     int totalMin=0;
     totalSec = seconds + time.seconds;
@@ -61,23 +61,23 @@ Time Time::operator+(const Time &time) const
     return sum;
 }
 
-bool Time::operator<(const Time &time) const
+bool MyTime::operator<(const MyTime &time) const
 {
     //converts time to seconds and compare
     return (hours*60*60 + minutes*60 + seconds) < (time.hours*60*60 + time.minutes*60 + seconds);
 }
 
-bool Time::operator==(const Time &time) const
+bool MyTime::operator==(const MyTime &time) const
 {
     return hours==time.hours && minutes==time.minutes && seconds == time.seconds;
 }
 
-int Time::timeToSeconds()
+int MyTime::timeToSeconds() const
 {
     return hours*60*60 + minutes*60 + seconds;
 }
 
-void Time::setTime(int pTotalSec)
+void MyTime::setTime(const int pTotalSec)
 {
     int temp = 0;
     seconds = pTotalSec % 60;
@@ -86,18 +86,17 @@ void Time::setTime(int pTotalSec)
     hours = temp/60;
 }
 
-ostream &operator<< (ostream &os, Time &time)
+ostream &operator<< (ostream &os, const MyTime &time)
 {
     os << time.timeToSeconds();
     return os;
 }
 
-istream &operator>> (istream & is, Time &time)
+istream &operator>> (istream & is, MyTime &time)
 {
     int temp = 0;
     is >> temp;
     is.get(); // reads and discards end of line
     time.setTime(temp);
-
     return is;
 }

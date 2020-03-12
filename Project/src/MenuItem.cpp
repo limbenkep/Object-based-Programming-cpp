@@ -4,7 +4,7 @@
 
 #include "MenuItem.h"
 
-MenuItem::MenuItem()
+MenuItem::MenuItem():enabled(false)
 {
 }
 
@@ -32,7 +32,7 @@ void MenuItem::setEnabled(bool pEnabled)
     enabled = pEnabled;
 }
 
-bool MenuItem::operator==(const MenuItem &menuItem)
+bool MenuItem::operator==(const MenuItem &menuItem) const
 {
     return menuText == menuItem.menuText && enabled == menuItem.enabled;
 }

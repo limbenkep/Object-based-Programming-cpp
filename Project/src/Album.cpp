@@ -5,8 +5,7 @@
 #include "Album.h"
 
 Album::Album()
-{
-}
+= default;
 
 Album::Album(const string &pAlbumName, const vector<Song> &pSongList) : albumName(pAlbumName), songList(pSongList)
 {
@@ -22,22 +21,26 @@ const string &Album::getAlbumName() const
     return albumName;
 }
 
-void Album::setAlbumName(const string &albumName)
+void Album::setAlbumName(const string &pAlbumName)
 {
-    Album::albumName = albumName;
+    albumName = pAlbumName;
 }
 
-void Album::addSongToList(Song &pSong)
+const vector<Song> &Album::getSongList() const
+{
+    return songList;
+}
+
+void Album::addSongToList(const Song &pSong)
 {
     songList.push_back(pSong);
 }
 
-int Album::sizeOfSongList()
+int Album::sizeOfSongList() const
 {
-    int size = songList.size();
-    return size;
+    return songList.size();
 }
-int Album::albumLength()
+int Album::albumLength() const
 {
     int totalSec = 0;
     for (auto idx : songList)
@@ -56,7 +59,7 @@ void Album::writeToFile(ostream &os)
 
 }
 
-bool Album::operator<(Album &album)
+bool Album::operator<(const Album &album) const
 {
     return albumLength() < album.albumLength();
 }

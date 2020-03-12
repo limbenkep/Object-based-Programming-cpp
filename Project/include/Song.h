@@ -6,19 +6,19 @@
 #define PROJECT_SONG_H
 
 #include <string>
-#include <Time.h>
+#include <MyTime.h>
 
 class Song
 {
 private:
     string songTitle;
     string artist;
-    Time songLength;
+    MyTime songLength;
 
 public:
     Song();
 
-    Song(const string &songTitle, const string &artist, const Time &songLength);
+    Song(const string &songTitle, const string &artist, const MyTime &songLength);
 
     virtual ~Song();
 
@@ -31,12 +31,12 @@ public:
 
     void setArtist(const string &artist);
 
-    Time getSongLength() const;
+    MyTime getSongLength() const;
 
-    void setSongLength(const Time &songLength);
+    void setSongLength(const MyTime &songLength);
 
     //member functions
-    Time getlengthFromInt(int pTotalSec);
+    MyTime getlengthFromInt(int pTotalSec);
     int lengthToSec();
 
 

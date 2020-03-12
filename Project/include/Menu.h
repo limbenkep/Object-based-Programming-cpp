@@ -44,9 +44,12 @@ public:
     //adds a menuItem to the vector list
     void addItem(const string &pMenuText, bool pEnabled);
     //prints menu options stored in the vector on the screen
-    void printMenuItems();
+    void printMenuItems() const;
     //prompts user to make a choice and returns an int corresponding to the choice
-    int getMenuChoice();
+    int getMenuChoice() const;
+    //int choiceToInt(const MenuItem &pItem) const;
+
+
     void executeMenu();
     void startUpJukeBoxMenu();
     void enabledJukeBoxMenu();

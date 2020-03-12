@@ -5,25 +5,26 @@
 #include <Song.h>
 #include <Album.h>
 #include <Menu.h>
+#include <Jukebox.h>
 
 int main()
 {
-    /*Time class test
-    Time time;
+    /*MyTime class test
+    MyTime time;
     time.setSeconds(25);
     time.setMinutes(10);
     time.setHours(10);
 
-    Time myTime (25, 30, 19);
-    Time uTime (25, 30, 19);
+    MyTime myTime (25, 30, 19);
+    MyTime uTime (25, 30, 19);
 
-    Time herTime;
+    MyTime herTime;
     herTime.setTime(100);
 
     cout << "Hours:" <<time.getHours() << "\tMinutes: " << time.getMinutes() << "\tSeconds: " << time.getSeconds() << endl;
     cout << "Hours:" <<myTime.getHours() << "\tMinutes: " << myTime.getMinutes() << "\tSeconds: " << myTime.getSeconds() << endl;
     cout << time.timeToSeconds() << endl;
-    cout << "her Time  Hours:" <<herTime.getHours() << "\tMinutes: " << herTime.getMinutes() << "\tSeconds: " << herTime.getSeconds() << endl;
+    cout << "her MyTime  Hours:" <<herTime.getHours() << "\tMinutes: " << herTime.getMinutes() << "\tSeconds: " << herTime.getSeconds() << endl;
 
     if (time == myTime)
     {
@@ -45,7 +46,7 @@ int main()
     outFile << time << endl;
     outFile.close();
 
-    Time time1;
+    MyTime time1;
     int temp= 0;
     fstream read ("example.txt", ios::in);
     while (read >> temp)
@@ -55,7 +56,7 @@ int main()
 
      //***Test for class song***
 
-    Time time;
+    MyTime time;
     time.setSeconds(25);
     time.setMinutes(10);
     time.setHours(0);
@@ -69,13 +70,13 @@ int main()
     inFile >> song1;
 
 
-    cout << song1.getSongTitle() << song1.getArtist()<< "\tTime:" << song.lengthToSec() << endl;
-    Time time1;
+    cout << song1.getSongTitle() << song1.getArtist()<< "\tMyTime:" << song.lengthToSec() << endl;
+    MyTime time1;
     time1 = song1.getSongLength();
     cout << "Hout: " << time1.getHours()<<"minutes: " << time1.getMinutes() << "Seconds: " << time1.getSeconds() << endl;
 
     //***Test for Album class
-    Time time;
+    MyTime time;
     time.setSeconds(40);
     time.setMinutes(1);
     time.setHours(0);
@@ -106,14 +107,16 @@ int main()
     if (album < album1)
         cout << "album < album1" << endl;
     */
-    Menu menu;
+   /* Menu menu;
     menu.setMenuTitle("Jukebox");
     menu.addItem("File...", true);
     menu.addItem("Add an album", false);
     menu.addItem("Delete an album",false);
     menu.addItem("Print...", true);
 
-    menu.printMenuItems();
+    menu.printMenuItems();*/
 
+    Jukebox jkb;
+    jkb.run();
     return 0;
 }
