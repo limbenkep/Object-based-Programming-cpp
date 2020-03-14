@@ -188,10 +188,7 @@ void Jukebox::run()
     }
     while(jukeboxRunning)
     {
-        const int val = jukeBoxMenu.getMenuChoice();
-        cout<< "\nVal is " << val << endl;
-        //switch (jukeBoxMenu.getMenuChoice())
-        switch(val)
+        switch (jukeBoxMenu.getMenuChoice())
         {
             case 1:
                 executeFileMenu();
@@ -213,7 +210,7 @@ void Jukebox::run()
                 break;
 
         }
-    }//while(again);
+    }
 }
 
 
