@@ -10,7 +10,7 @@ set (CMAKE_CXX_STANDARD 11)
 aux_source_directory(src/ SOURCES)
 
 # Create executable for the run configuration
-add_executable(${PROJECT_NAME}-Project ${SOURCES} src/MyTime.cpp include/MyTime.h src/Song.cpp include/Song.h src/Album.cpp include/Album.h src/MenuItem.cpp include/MenuItem.h src/Menu.cpp include/Menu.h src/Jukebox.cpp include/Jukebox.h src/Queue.cpp include/Queue.h)
+add_executable(${PROJECT_NAME}-Project ${SOURCES} src/MyTime.cpp include/MyTime.h src/Song.cpp include/Song.h src/Album.cpp include/Album.h src/MenuItem.cpp include/MenuItem.h src/Menu.cpp include/Menu.h src/Jukebox.cpp include/Jukebox.h)
 
 # In order to avoid '../../../' semantics in include paths (relative), we need to add
 # target directory to the configuration

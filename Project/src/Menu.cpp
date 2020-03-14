@@ -38,7 +38,7 @@ void Menu::addItem(const string &pMenuText, bool pEnabled)
 
 void Menu::printMenuItems() const
 {
-    cout << "**** " << menuTitle << " ****" << endl;
+    cout << "\n**** " << menuTitle << " ****" << endl;
     int i = 1;
     for (const auto& idx: menuOptions)
     {
@@ -75,26 +75,10 @@ int Menu::getMenuChoice() const
     }
     cin.ignore(1000, '\n');
     auto it = find (menuOptions.begin(), menuOptions.end(), enabledOptions[choice-1]);
-    cout <<"it - menuOptions.begin() is " <<it - menuOptions.begin() << endl;
     int myIndex = it - menuOptions.begin();
-    cout << "MyIndex " << myIndex << endl;
     return myIndex + 1;
 }
 
-void Menu::executeMenu()
-{
-    /*bool again = true;
-    do
-    {
-        switch (getMenuChoice())
-        {
-            case 1:
-                //fileMenu
-
-        }
-    }*/
-
-}
 
 void Menu::startUpJukeBoxMenu()
 {

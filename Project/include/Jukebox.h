@@ -1,7 +1,14 @@
 //
 // Created by limbe on 2020-03-07.
 //
-
+/*
+ * This class is a userinterface class that allows the user to choose what to be executed and contains functions
+ * that execute the various options. This class functions to add and delete an album, read from and save to file,
+ * print an album, print all details of albumList sorted by Name in alphabetical order, print detailed  albumList
+ * sorted by total time from longest, print album names in alphabetical order and print album name and total play time
+ * sorted by total play time See comments on the different functions how they work.
+ * This class also contain functions that run the different menu and submenus.
+ */
 #ifndef PROJECT_JUKEBOX_H
 #define PROJECT_JUKEBOX_H
 #include<Menu.h>
@@ -14,6 +21,7 @@ private:
     vector<Album> albumList;
     Menu jukeBoxMenu, fileMenu, printMenu;
     const string fileName{"jukebox.txt"};
+    bool jukeboxRunning = true;
     /*
     * reads album from a fileMenu
     */
@@ -26,7 +34,7 @@ private:
      * receives an Album object by reference and adds to the albumList
      */
     void addAlbumToList();
-    // prompts user to enter choice and check if it is an integer and it returns the interger if not it prompts user to renter a number
+    // prompts user to enter choice and check if it is an integer greater than 0 and returns the interger if not it prompts user to renter a number
     int getNumber();
     /*
      * prints list of album names and promps user to choose and album, the choice is read as an interger, controlled

@@ -66,7 +66,6 @@ ostream &operator<< (ostream &os, Song &song)
     os << song.getSongTitle() << DELIM;
     os << song.getArtist() << DELIM;
     os << song.getSongLength();
-    //os << song.lengthToSec();
 
     return os;
 }
@@ -85,7 +84,5 @@ istream &operator>> (istream &is, Song &song)
     is >> time;
     song.setSongLength(time);
      return is;
-
-
 
 }

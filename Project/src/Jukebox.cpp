@@ -12,65 +12,7 @@ Jukebox::Jukebox()
     fileMenu.startUpFileMenu();
     printMenu.startUpPrintMenu();
 
-    /*bool again = true;
-    while(again)
-    {
-        switch (jukeBoxMenu.getMenuChoice())
-        {
-            case 1:
-                executeFileMenu();
-                again = albumList.empty();
-                break;
-            *//*case 2:
-                addAlbumToList();
-                break;
-            case 3:
-                deleteAlbumFromList();
-                break;
-            case 4:
-                executePrintMenu();
-                break;*//*
-            case 5:
-                again = false;
-                break;
-            default:
-                cout << "\nInvalid choice." << endl;
-                break;
-    }
 
-    *//*while(again)
-    {
-        switch (jukeBoxMenu.getMenuChoice())
-        {
-            case 1:
-                fileMenu.printMenuItems();
-                executeFileMenu();
-                again = false;
-                break;
-            case 2:
-                again = false;
-                break;
-            default:
-                cout << "Invalid entry. Enter 1 or 2"<< endl;
-                break;
-        }
-    }
-
-
-
-    if (jukeBoxMenu.getMenuChoice() == 1)
-    {
-        fileMenu.printMenuItems();
-        if(jukeBoxMenu.getMenuChoice() ==1)
-        {
-
-        }
-    }
-
-    printMenu.startUpPrintMenu();*//*
-
-
-;*/
 }
 
 Jukebox::~Jukebox()
@@ -78,18 +20,26 @@ Jukebox::~Jukebox()
 
 void Jukebox::readAlbumListFromFile()
 {
-    cout << "Trying to read album from list" << endl;
+    if(!albumList.empty())
+    {
+        albumList.clear();
+    }
     Album tmpAlbum;
     ifstream inFile (fileName.c_str());
-    if(inFile.is_open())
+    if(inFile)
     {
 
-        while (!inFile.eof())
+        do
         {
+            if (inFile.eof())
+            {
+                EXIT_SUCCESS;
+            }
             inFile >> tmpAlbum;
-            cout<<"Temp alb "<< tmpAlbum.getAlbumName() << endl;
             albumList.push_back(tmpAlbum);
-        }
+        }while (!inFile.eof());
+        inFile.close();
+        cout << "\nAlbum list has been read from file. " << endl;
     }
     else
     {
@@ -104,9 +54,10 @@ void Jukebox::writeAlbumListToFile()
     fstream outFile (fileName.c_str(), ios::out);
     for (auto &idx: albumList)
     {
-        outFile<<idx<<endl;
+        outFile<<idx;
     }
     outFile.close();
+    cout << "\nAlbum list has been saved to file." << endl;
 }
 
 void Jukebox::addAlbumToList()
@@ -184,7 +135,7 @@ int Jukebox::getNumber()
     cout << ": ";
     int choice = 0;
     cin>>choice;
-    if (!cin||choice<1)// This control ensures that only numbers are read and no empty albums or song can be store in the list
+    if (!cin||choice<1)// this control ensures that number of albums, number of songs, song length for which is function is used to get can not be 0
     {
         cin.clear();
         cin.ignore(1000, '\n');
@@ -235,10 +186,12 @@ void Jukebox::run()
         printMenu.enabledPrintMenu();
 
     }
-    bool again = true;
-    do
+    while(jukeboxRunning)
     {
-        switch (jukeBoxMenu.getMenuChoice())
+        const int val = jukeBoxMenu.getMenuChoice();
+        cout<< "\nVal is " << val << endl;
+        //switch (jukeBoxMenu.getMenuChoice())
+        switch(val)
         {
             case 1:
                 executeFileMenu();
@@ -253,15 +206,14 @@ void Jukebox::run()
                 executePrintMenu();
                 break;
             case 5:
-                again = false;
+                jukeboxRunning = false;
                 break;
             default:
                 cout << "\nInvalid choice." << endl;
                 break;
 
         }
-    }while(again);
-
+    }//while(again);
 }
 
 
@@ -330,9 +282,8 @@ void Jukebox::printAlbum(const Album &pAlbum)
     vector<Song> songList = pAlbum.getSongList();
     cout << "\nAlbum Name: " << pAlbum.getAlbumName() << "\nNumber of songs in album: " << pAlbum.sizeOfSongList()
     <<"\nAlbum total play time:" << pAlbum.albumLength()<<"s"
-    << "\nAlbum song List:"<<endl;
+    << "\nAlbum song List in order count, song title, artist, length of song(hour:min:sec:"<<endl;
     int number = 1;
-    cout << "Song Number\tSong Title\tArtist\tsong Length (s)" <<endl;
     for(const auto& idx : songList)
     {
         MyTime tmpTime = idx.getSongLength();
@@ -354,7 +305,7 @@ void Jukebox::printAlbum(const Album &pAlbum)
 void Jukebox::printAnAlbum()
 {
     printAlbumNamesList();
-    cout << "\nEnter the number corresponding to the album you wish to printMenu." << endl;
+    cout << "\nEnter the number of the album on the list you wish to print." << endl;
     int myIndex = chooseAnAlbum();
     printAlbum(albumList[myIndex]);
 }
@@ -381,21 +332,21 @@ void Jukebox::printAlbumList()
 void Jukebox::printAllSortByAlbumName()
 {
     sort(albumList.begin(), albumList.end(), compareNamesOfAlbum);
-    cout << "This is a list of all albums sorted by album name in alphabetical order." << endl;
+    cout << "\n\nThis is a list of all albums sorted by album name in alphabetical order." << endl;
     printAlbumList();
 }
 
 void Jukebox::printAllSortByAlbumTime()
 {
     sort(albumList.begin(), albumList.end(), compareTotalTimeOfAlbum);
-    cout << "This is a list of all albums sorted by album total play time." << endl;
+    cout << "\n\nThis is a list of all albums sorted by album total play time:" << endl;
     printAlbumList();
 }
 
 void Jukebox::printSortedAlbumNames()
 {
     sort(albumList.begin(), albumList.end(), compareNamesOfAlbum);
-    cout << "This is a list of the names in alphabetical order of all albums in the list ." << endl;
+    cout << "\n\nThis is a list of the names of all albums in the list in alphabetical order:" << endl;
     printAlbumNamesList();
 }
 
@@ -403,7 +354,7 @@ void Jukebox::printTimeSortedNameAndTime()
 {
     sort(albumList.begin(), albumList.end(), compareTotalTimeOfAlbum);
     int number = 1;
-    cout << " \tAlbum Name\tAlbum total time" << endl;
+    cout << "\n\nList of all album names and lengths in the list sorted by album total time starting with the longest:" << endl;
     for(const auto& idx : albumList)
     {
         MyTime totalTime;

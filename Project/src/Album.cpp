@@ -64,6 +64,11 @@ bool Album::operator<(const Album &album) const
     return albumLength() < album.albumLength();
 }
 
+void Album::clearSongList()
+{
+    songList.clear();
+}
+
 ostream &operator<< (ostream &os, Album &album)
 {
     os << album.getAlbumName() << endl;
@@ -78,12 +83,16 @@ istream &operator>> (istream &is, Album &album)
     getline(is, tmpString);
     album.setAlbumName(tmpString);
     getline(is, tmpString);
-    int albumSize = stoi(tmpString);
+    int albumSize=stoi(tmpString);
+    /*is  >> albumSize;
+    is.get();*/
+    album.clearSongList();
     for (int i = 0; i < albumSize; i++)
     {
         Song tmpSong;
         is >> tmpSong;
         album.addSongToList(tmpSong);
     }
+
     return is;
 }
