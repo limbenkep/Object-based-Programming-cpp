@@ -89,6 +89,17 @@ void Menu::startUpJukeBoxMenu()
     addItem(print, false);
     addItem("Exit", true);
 }
+void Menu::startUpFileMenu()
+{
+    menuTitle = file;
+    addItem(open, true);
+    addItem(save, false);
+    addItem(backToMainMenu, true);
+}
+void Menu::startUpPrintMenu()
+{
+    menuTitle = print;
+}
 
 void Menu::enabledJukeBoxMenu()
 {
@@ -110,18 +121,6 @@ void Menu::enabledFileMenu()
     addItem(backToMainMenu, true);
 }
 
-void Menu::startUpFileMenu()
-{
-    menuTitle = file;
-    addItem(open, true);
-    addItem(save, false);
-    addItem(backToMainMenu, true);
-}
-
-void Menu::startUpPrintMenu()
-{
-    menuTitle = print;
-}
 
 void Menu::enabledPrintMenu()
 {

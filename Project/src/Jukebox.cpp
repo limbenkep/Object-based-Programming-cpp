@@ -15,6 +15,13 @@ Jukebox::Jukebox()
 
 }
 
+Jukebox::Jukebox(const vector<Album> &albumList, const Menu &jukeBoxMenu, const Menu &fileMenu, const Menu &printMenu,
+                 const string &fileName) : albumList(albumList), jukeBoxMenu(jukeBoxMenu), fileMenu(fileMenu),
+                                           printMenu(printMenu), fileName(fileName)
+{
+}
+
+
 Jukebox::~Jukebox()
 = default;
 
@@ -39,14 +46,14 @@ void Jukebox::readAlbumListFromFile()
             albumList.push_back(tmpAlbum);
         }while (!inFile.eof());
         inFile.close();
-        cout << "\nAlbum list has been read from file. " << endl;
+        cout << "\nAlbum list has been read from file. ";
     }
     else
     {
-        cout << "File not found"<<endl;
+        cout << "File not found";
         EXIT_FAILURE;
     }
-
+    nextMoveKey();
 }
 
 void Jukebox::writeAlbumListToFile()
@@ -57,7 +64,8 @@ void Jukebox::writeAlbumListToFile()
         outFile<<idx;
     }
     outFile.close();
-    cout << "\nAlbum list has been saved to file." << endl;
+    cout << "\nAlbum list has been saved to file.";
+    nextMoveKey();
 }
 
 void Jukebox::addAlbumToList()
@@ -128,6 +136,8 @@ void Jukebox::addAlbumToList()
     }
 
     albumList.push_back(newAlbum);
+    cout << "The album '" << newAlbum.getAlbumName() << "' has been added to the album list.";
+    nextMoveKey();
 }
 
 int Jukebox::getNumber()
@@ -164,6 +174,8 @@ void Jukebox::deleteAlbumFromList()
     cout << "Enter the number of the album you wish to delete." << endl;
     int myIndex = chooseAnAlbum();
     albumList.erase(albumList.begin()+ myIndex);
+    cout << "Album number " << myIndex+1 << " on the list has been deleted";
+    nextMoveKey();
 }
 
 void Jukebox::printAlbumNamesList()
@@ -184,7 +196,6 @@ void Jukebox::run()
         jukeBoxMenu.enabledJukeBoxMenu();
         fileMenu.enabledFileMenu();
         printMenu.enabledPrintMenu();
-
     }
     while(jukeboxRunning)
     {
@@ -305,6 +316,8 @@ void Jukebox::printAnAlbum()
     cout << "\nEnter the number of the album on the list you wish to print." << endl;
     int myIndex = chooseAnAlbum();
     printAlbum(albumList[myIndex]);
+    cout << "End of album! ";
+    nextMoveKey();
 }
 
 
@@ -320,16 +333,21 @@ bool Jukebox::compareTotalTimeOfAlbum(const Album &album1, const Album &album2)
 
 void Jukebox::printAlbumList()
 {
+    cout << "One album will be printed at a time.";
     for(const auto& idx : albumList)
     {
+        nextMoveKey();
         printAlbum(idx);
     }
+    cout << "End of albumlist! ";
+    nextMoveKey();
+
 }
 
 void Jukebox::printAllSortByAlbumName()
 {
     sort(albumList.begin(), albumList.end(), compareNamesOfAlbum);
-    cout << "\n\nThis is a list of all albums sorted by album name in alphabetical order." << endl;
+    cout << "\nThis is a list of all albums sorted by album name in alphabetical order." << endl;
     printAlbumList();
 }
 
@@ -345,6 +363,8 @@ void Jukebox::printSortedAlbumNames()
     sort(albumList.begin(), albumList.end(), compareNamesOfAlbum);
     cout << "\n\nThis is a list of the names of all albums in the list in alphabetical order:" << endl;
     printAlbumNamesList();
+    cout << "End of album name list! ";
+    nextMoveKey();
 }
 
 void Jukebox::printTimeSortedNameAndTime()
@@ -368,16 +388,15 @@ void Jukebox::printTimeSortedNameAndTime()
         }
         number++;
     }
+    cout << "End of list! ";
+    nextMoveKey();
 }
 
-Jukebox::Jukebox(const vector<Album> &albumList, const Menu &jukeBoxMenu, const Menu &fileMenu, const Menu &printMenu,
-                 const string &fileName) : albumList(albumList), jukeBoxMenu(jukeBoxMenu), fileMenu(fileMenu),
-                                           printMenu(printMenu), fileName(fileName)
+void Jukebox::nextMoveKey()
 {
+    cout << "\n\tPress 'ENTER' to continue!";
+    cin.get();
 }
-
-
-
 
 
 

@@ -97,6 +97,8 @@ private:
      */
     void printTimeSortedNameAndTime();
 
+    void nextMoveKey();
+
 public:
     Jukebox();
 
