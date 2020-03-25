@@ -55,8 +55,8 @@ public:
      * returns an object of type Name.
      */
     Name readName();
-    //void printName(const Name &pName) const;
-    void printName(const Name &pName) const;
+    //prints name in the order first name then last name on the screen
+    void printName() const;
 
 };
 

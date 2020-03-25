@@ -55,9 +55,9 @@ bool Name::operator<(const Name &name) const
     }
 }
 
-void Name::printName(const Name &pName) const
+void Name::printName() const
 {
-    cout << "\nName: "<< pName.getFirstName() << " " << pName.getLastName();
+    cout << "\nName: "<< firstName << " " << lastName;
 }
 
 

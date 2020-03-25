@@ -72,7 +72,7 @@ public:
      *//*
 */
 
-    void printPerson(const Person &person) const ;
+    void printPerson() const ;
 
 
 };

@@ -63,7 +63,7 @@ public:
     /**
      * receives an Address prints  full address
      */
-    void printAddress(const Address &pAddress)const;
+    void printAddress()const;
 
     /**
      * prompts user for street name, post number and city name

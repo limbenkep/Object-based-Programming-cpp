@@ -49,10 +49,10 @@ void Address::setCityName(const string &pCityName)
     cityName = pCityName;
 }
 
-void Address::printAddress(const Address &pAddress)const
+void Address::printAddress()const
 {
-    cout << "\nAddress: " << pAddress.getStreetName() << ", " << pAddress.getPostNumber()
-         << ", " << pAddress.getCityName() << ".";
+    cout << "\nAddress: " << streetName << ", " << postNumber
+         << ", " << cityName;
 }
 
 bool Address::operator==(const Address &address) const
