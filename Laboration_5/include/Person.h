@@ -65,7 +65,7 @@ public:
      * returns an object of type Person
      */
 
-    Person readPerson();
+    void readPerson();
 
 /*
      * receives an object of type Person and prints the information: Name, address, social security number and shoe size

@@ -105,25 +105,16 @@ istream &operator>>(istream &is, Address &address)
 }
 
 
-Address Address::readAddress()
+void Address::readAddress()
 {
-    Address myAddress;
-    string myStreetName;
-    string myPostNumber;
-    string myCityName;
     cout << "\nEnter street name: ";
-    getline (cin, myStreetName);
-    myAddress.setStreetName(myStreetName);
+    getline (cin, streetName);
 
     cout << "\nEnter post number: ";
-    getline (cin, myPostNumber);
-    myAddress.setPostNumber(myPostNumber);
+    getline (cin, postNumber);
 
     cout << "\nEnter city name: ";
-    getline (cin, myCityName);
-    myAddress.setCityName(myCityName);
-
-    return myAddress;
+    getline (cin, cityName);
 }
 
 

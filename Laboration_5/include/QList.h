@@ -9,8 +9,10 @@
 typedef Person Item;
 class Node;
 //------------------------------------------------------------------------------
-// QIterator class
-//------------------------------------------------------------------------------
+/* QIterator class
+ * This iterator is used to iterate through the queue in the Qlist class
+ * has a node ad datamember that contains data of type Person
+------------------------------------------------------------------------------*/
 class QIterator
 {
 private:
@@ -26,9 +28,12 @@ public:
 
 };
 
-//------------------------------------------------------------------------------
-// queue class
-//------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
+ * Qlist class store nodes in a queue list containing data of type Person
+ * contain functions to add a person at the end of the list, delete person fron the top of the list and
+ * delete a given person within the list
+------------------------------------------------------------------------------
+ */
 class QList{
 private:
     Node *first, *last;

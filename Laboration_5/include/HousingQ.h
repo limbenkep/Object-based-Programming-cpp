@@ -1,6 +1,12 @@
 //
 // Created by limbe on 2020-03-25.
 //
+/*
+ * This class' data members are a Qlist object stores the persons on the housing queue in a list, and
+ * an interger that stores the number of persons on the queue.
+ * This class is a userinterface that allows users to choose options from the menu and contains member functions
+ * that execute the actions specified by the options
+ */
 
 #ifndef LABORATION_5_HOUSINGQ_H
 #define LABORATION_5_HOUSINGQ_H
@@ -51,6 +57,7 @@ public:
     * reads queue to the file HousingQueue.txt specified in the program
     */
     void readQueueToFile();
+    int getChoice();
 
 public:
     HousingQ();
@@ -58,6 +65,7 @@ public:
     virtual ~HousingQ();
 
     //Member functions
+    void run();
 
 
 

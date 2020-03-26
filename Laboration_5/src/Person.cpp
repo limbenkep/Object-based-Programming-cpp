@@ -137,27 +137,14 @@ void Person::printPerson() const
     cout << "\nSocial security number: " << persNr << "\nShoe size:" <<shoeNr<<endl;
 }
 
-Person Person::readPerson()
+void Person::readPerson()
 {
-    Person pers;
-    Name myName;
-    myName = myName.readName();
-    pers.setName(myName);
-
-    Address myAddress;
-    myAddress = myAddress.readAddress();
-    pers.setAddress(myAddress);
-
-    string pPersNr;
-    int pShoeNr = 0;
+    name.readName();
+    address.readAddress();
 
     cout << "\nEnter social security number: ";
-    getline(cin, pPersNr);
-    pers.setPersNr(pPersNr);
+    getline(cin, persNr);
 
     cout << "\nEnter shoe size: ";
-    cin >> pShoeNr;
-    pers.setShoeNr(pShoeNr);
-
-    return pers;
+    cin >> shoeNr;
 }

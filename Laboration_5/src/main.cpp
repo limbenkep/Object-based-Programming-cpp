@@ -1,29 +1,19 @@
+/*
+ * This program handles information on persons on a housing queue. The program allows the user to ;
+ * Add a person to queue, Offer a person housing, Print housing queue list, Print data on a person in the queue,
+ * Remove a person from the queue and  Save queue to file by choosing options from a menu.
+ */
+
 #include "Prototypes.h"
 #include "memstat.hpp"
-#include <QList.h>
+#include <HousingQ.h>
 
 int main()
 {
-    QList numbers;
-    cout << "Quese size = " << numbers.getSize() << endl;
-    numbers.enque(Person());
-    for (int i=1; i<20; i++)
-    {
-        numbers.enque(Person());
-    }
-    cout <<"Size " <<numbers.getSize() << endl;
-    Person temp{};
-    while(!numbers.isEmpty()){
-        numbers.deque(temp);
-        cout << "Number from queue= " << temp << ", queue size = " << numbers.getSize() <<  endl;
-    }
-    for (int i=0; i<numbers.getSize(); i++)
-    {
-        std::cout << "I am here in for-loop" << endl;
-        if(numbers.deque(temp)){
-            cout <<  temp << endl;
-        }
-    }
+
+    HousingQ housing;
+    housing.run();
+
 
     return 0;
 }

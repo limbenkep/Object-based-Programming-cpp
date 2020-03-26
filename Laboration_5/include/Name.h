@@ -54,7 +54,7 @@ public:
      * prompts user for first and last name and load in an object of type Name
      * returns an object of type Name.
      */
-    Name readName();
+    void readName();
     //prints name in the order first name then last name on the screen
     void printName() const;
 

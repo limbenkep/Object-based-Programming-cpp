@@ -69,7 +69,7 @@ public:
      * prompts user for street name, post number and city name
      * @return returns an object of type Address
      */
-    Address readAddress();
+    void readAddress();
 };
 /*
  * output operator for printing to a file
